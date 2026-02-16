@@ -22473,8 +22473,10 @@
       }
     }
   },
-  "generated_at": "2026-02-16T17:48:23.811222+00:00",
+  "garmin_profile_url": "https://connect.garmin.com/modern/profile/769515be-3a2a-41db-8416-34d02a94f100",
+  "generated_at": "2026-02-16T18:02:15.490371+00:00",
   "other_bucket": "OtherSports",
+  "profile_url": "https://connect.garmin.com/modern/profile/769515be-3a2a-41db-8416-34d02a94f100",
   "repo": "aspain/git-sweaty",
   "source": "garmin",
   "type_meta": {

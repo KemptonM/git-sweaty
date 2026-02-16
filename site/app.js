@@ -331,7 +331,7 @@ function syncHeaderLinkPlacement() {
   }
 
   if (!stravaProfileLink || !headerMeta) return;
-  const placeStravaOnLeft = isDesktopLikeViewport() && !stravaProfileLink.hidden;
+  const placeStravaOnLeft = !stravaProfileLink.hidden;
   if (placeStravaOnLeft) {
     if (stravaProfileLink.parentElement !== headerMeta) {
       headerMeta.appendChild(stravaProfileLink);

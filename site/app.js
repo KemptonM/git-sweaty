@@ -81,6 +81,8 @@ const PROFILE_PROVIDER_STRAVA = "strava";
 const PROFILE_PROVIDER_GARMIN = "garmin";
 const TOUCH_TOOLTIP_TAP_MAX_MOVE_PX = 10;
 const TOUCH_TOOLTIP_TAP_MAX_SCROLL_PX = 2;
+const TOUCH_TOOLTIP_MAX_EFFECTIVE_ZOOM = 1.2;
+const TOUCH_TOOLTIP_MIN_SCALE = 0.5;
 
 function resetPersistentSideStatSizing() {
   persistentSideStatCardWidth = 0;
@@ -891,28 +893,68 @@ function getViewportMetrics() {
   };
 }
 
-function getTooltipScale() {
+function tooltipViewportAnchorOffset(viewport) {
+  if (!useTouchInteractions) {
+    return { x: 0, y: 0 };
+  }
+  return {
+    x: Number.isFinite(viewport?.offsetLeft) ? viewport.offsetLeft : 0,
+    y: Number.isFinite(viewport?.offsetTop) ? viewport.offsetTop : 0,
+  };
+}
+
+function pickTooltipCoordinate(preferred, alternate, min, max) {
+  const preferredFits = preferred >= min && preferred <= max;
+  if (preferredFits) {
+    return preferred;
+  }
+  const alternateFits = alternate >= min && alternate <= max;
+  if (alternateFits) {
+    return alternate;
+  }
+  const clampedPreferred = clamp(preferred, min, max);
+  const clampedAlternate = clamp(alternate, min, max);
+  return Math.abs(clampedPreferred - preferred) <= Math.abs(clampedAlternate - alternate)
+    ? clampedPreferred
+    : clampedAlternate;
+}
+
+function getTouchTooltipScale() {
+  if (!useTouchInteractions) {
+    return 1;
+  }
   const viewport = window.visualViewport;
   const scale = Number(viewport?.scale);
   if (!Number.isFinite(scale) || scale <= 0) {
     return 1;
   }
-  return 1 / scale;
+  const desiredScale = TOUCH_TOOLTIP_MAX_EFFECTIVE_ZOOM / scale;
+  return clamp(desiredScale, TOUCH_TOOLTIP_MIN_SCALE, 1);
 }
 
 function positionTooltip(x, y) {
   const padding = 12;
   const rect = tooltip.getBoundingClientRect();
   const viewport = getViewportMetrics();
-  const anchorX = x + viewport.offsetLeft;
-  const anchorY = y + viewport.offsetTop;
-  const minX = viewport.offsetLeft + padding;
-  const minY = viewport.offsetTop + padding;
-  const maxX = Math.max(minX, viewport.offsetLeft + viewport.width - rect.width - padding);
-  const maxY = Math.max(minY, viewport.offsetTop + viewport.height - rect.height - padding);
-  const left = clamp(anchorX + 12, minX, maxX);
+  const anchorOffset = tooltipViewportAnchorOffset(viewport);
+  const anchorX = x + anchorOffset.x;
+  const anchorY = y + anchorOffset.y;
+  if (!useTouchInteractions) {
+    tooltip.style.left = `${anchorX + 12}px`;
+    tooltip.style.top = `${anchorY + 12}px`;
+    tooltip.style.bottom = "auto";
+    return;
+  }
+  const minX = anchorOffset.x + padding;
+  const minY = anchorOffset.y + padding;
+  const maxX = Math.max(minX, anchorOffset.x + viewport.width - rect.width - padding);
+  const maxY = Math.max(minY, anchorOffset.y + viewport.height - rect.height - padding);
+  const preferredLeft = anchorX + 12;
+  const alternateLeft = anchorX - rect.width - 12;
+  const left = pickTooltipCoordinate(preferredLeft, alternateLeft, minX, maxX);
   const preferredTop = useTouchInteractions ? (anchorY - rect.height - 12) : (anchorY + 12);
-  const top = clamp(preferredTop, minY, maxY);
+  const alternateTop = useTouchInteractions ? (anchorY + 12) : (anchorY - rect.height - 12);
+  const top = pickTooltipCoordinate(preferredTop, alternateTop, minY, maxY);
   tooltip.style.left = `${left}px`;
   tooltip.style.top = `${top}px`;
   tooltip.style.bottom = "auto";
@@ -922,21 +964,37 @@ function updateTouchTooltipWrapMode() {
   if (!useTouchInteractions) return;
   const padding = 12;
   const viewport = getViewportMetrics();
+  const anchorOffset = tooltipViewportAnchorOffset(viewport);
   const availableWidth = Math.max(0, viewport.width - (padding * 2));
+  const availableHeight = Math.max(0, viewport.height - (padding * 2));
+  if (availableHeight > 0) {
+    const preferredMaxHeight = Math.max(120, Math.floor(viewport.height * 0.7));
+    const maxHeight = Math.min(availableHeight, preferredMaxHeight);
+    tooltip.style.maxHeight = `${maxHeight}px`;
+    tooltip.style.overflowY = "auto";
+    tooltip.style.overflowX = "hidden";
+  } else {
+    tooltip.style.removeProperty("max-height");
+    tooltip.style.removeProperty("overflow-y");
+    tooltip.style.removeProperty("overflow-x");
+  }
   if (availableWidth <= 0) {
+    tooltip.style.removeProperty("max-width");
     tooltip.classList.remove("nowrap");
     return;
   }
+  const maxWidth = Math.min(320, availableWidth);
+  tooltip.style.maxWidth = `${maxWidth}px`;
 
   tooltip.classList.remove("nowrap");
-  tooltip.style.left = `${viewport.offsetLeft + padding}px`;
-  tooltip.style.top = `${viewport.offsetTop + padding}px`;
+  tooltip.style.left = `${anchorOffset.x + padding}px`;
+  tooltip.style.top = `${anchorOffset.y + padding}px`;
   tooltip.style.bottom = "auto";
   tooltip.style.right = "auto";
 
   tooltip.classList.add("nowrap");
-  const nowrapWidth = tooltip.getBoundingClientRect().width;
-  if (nowrapWidth > availableWidth) {
+  const nowrapWidth = Math.max(0, Number(tooltip.scrollWidth || 0));
+  if (!nowrapWidth || nowrapWidth > maxWidth) {
     tooltip.classList.remove("nowrap");
   }
 }
@@ -1084,15 +1142,23 @@ function showTooltip(content, x, y, options = {}) {
   const rendered = renderTooltipContent(content);
   const allowInteraction = rendered.hasLinks && (useTouchInteractions || interactive);
   tooltip.classList.toggle("interactive", allowInteraction);
-  const tooltipScale = getTooltipScale();
   if (useTouchInteractions) {
     tooltip.classList.add("touch");
-    tooltip.style.transform = "none";
+    const touchTooltipScale = getTouchTooltipScale();
     tooltip.style.transformOrigin = "top left";
+    if (touchTooltipScale === 1) {
+      tooltip.style.removeProperty("transform");
+    } else {
+      tooltip.style.transform = `scale(${touchTooltipScale})`;
+    }
   } else {
     tooltip.classList.remove("touch");
-    tooltip.style.transform = `translateY(-8px) scale(${tooltipScale})`;
-    tooltip.style.transformOrigin = "top left";
+    tooltip.style.removeProperty("max-width");
+    tooltip.style.removeProperty("max-height");
+    tooltip.style.removeProperty("overflow-y");
+    tooltip.style.removeProperty("overflow-x");
+    tooltip.style.removeProperty("transform");
+    tooltip.style.removeProperty("transform-origin");
   }
   tooltip.classList.add("visible");
   if (useTouchInteractions) {

@@ -10,6 +10,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2024-04-09T22:24:15Z",
     "type": "WeightTraining",
+    "weight_reps": 150,
+    "weight_sets": 19,
+    "weight_volume_lbs": 14560.0,
     "year": 2024
   },
   {
@@ -23,6 +26,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2024-04-11T20:16:28Z",
     "type": "WeightTraining",
+    "weight_reps": 158,
+    "weight_sets": 21,
+    "weight_volume_lbs": 10664.5,
     "year": 2024
   },
   {
@@ -36,6 +42,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2024-04-13T16:21:59Z",
     "type": "WeightTraining",
+    "weight_reps": 167,
+    "weight_sets": 19,
+    "weight_volume_lbs": 17537.0,
     "year": 2024
   },
   {
@@ -49,6 +58,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2024-04-16T19:31:11Z",
     "type": "WeightTraining",
+    "weight_reps": 103,
+    "weight_sets": 13,
+    "weight_volume_lbs": 6463.0,
     "year": 2024
   },
   {
@@ -62,6 +74,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2024-04-17T16:29:09Z",
     "type": "WeightTraining",
+    "weight_reps": 158,
+    "weight_sets": 19,
+    "weight_volume_lbs": 16074.0,
     "year": 2024
   },
   {
@@ -75,6 +90,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2024-04-21T18:07:30Z",
     "type": "WeightTraining",
+    "weight_reps": 181,
+    "weight_sets": 19,
+    "weight_volume_lbs": 20207.5,
     "year": 2024
   },
   {
@@ -88,6 +106,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2024-04-25T19:02:42Z",
     "type": "WeightTraining",
+    "weight_reps": 139,
+    "weight_sets": 20,
+    "weight_volume_lbs": 9056.5,
     "year": 2024
   },
   {
@@ -101,6 +122,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2024-04-26T13:26:43Z",
     "type": "WeightTraining",
+    "weight_reps": 159,
+    "weight_sets": 19,
+    "weight_volume_lbs": 17708.0,
     "year": 2024
   },
   {
@@ -114,6 +138,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2024-04-27T19:26:24Z",
     "type": "WeightTraining",
+    "weight_reps": 104,
+    "weight_sets": 15,
+    "weight_volume_lbs": 7770.0,
     "year": 2024
   },
   {
@@ -127,6 +154,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2024-04-29T18:41:20Z",
     "type": "WeightTraining",
+    "weight_reps": 158,
+    "weight_sets": 18,
+    "weight_volume_lbs": 18865.0,
     "year": 2024
   },
   {
@@ -140,6 +170,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2024-04-30T19:42:57Z",
     "type": "WeightTraining",
+    "weight_reps": 110,
+    "weight_sets": 13,
+    "weight_volume_lbs": 6704.0,
     "year": 2024
   },
   {
@@ -153,6 +186,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2024-05-01T17:41:31Z",
     "type": "WeightTraining",
+    "weight_reps": 141,
+    "weight_sets": 18,
+    "weight_volume_lbs": 15176.5,
     "year": 2024
   },
   {
@@ -166,6 +202,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2024-05-03T15:01:44Z",
     "type": "WeightTraining",
+    "weight_reps": 159,
+    "weight_sets": 24,
+    "weight_volume_lbs": 9847.5,
     "year": 2024
   },
   {
@@ -179,6 +218,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2024-05-04T14:52:56Z",
     "type": "WeightTraining",
+    "weight_reps": 144,
+    "weight_sets": 19,
+    "weight_volume_lbs": 15689.5,
     "year": 2024
   },
   {
@@ -192,6 +234,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2024-05-07T14:54:38Z",
     "type": "WeightTraining",
+    "weight_reps": 152,
+    "weight_sets": 19,
+    "weight_volume_lbs": 18449.0,
     "year": 2024
   },
   {
@@ -205,6 +250,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2024-05-09T11:52:37Z",
     "type": "WeightTraining",
+    "weight_reps": 100,
+    "weight_sets": 15,
+    "weight_volume_lbs": 7450.0,
     "year": 2024
   },
   {
@@ -218,6 +266,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2024-05-11T14:18:40Z",
     "type": "WeightTraining",
+    "weight_reps": 196,
+    "weight_sets": 25,
+    "weight_volume_lbs": 19795.0,
     "year": 2024
   },
   {
@@ -231,6 +282,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2024-05-13T00:25:44Z",
     "type": "WeightTraining",
+    "weight_reps": 61,
+    "weight_sets": 11,
+    "weight_volume_lbs": 6850.0,
     "year": 2024
   },
   {
@@ -244,6 +298,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2024-05-15T14:27:28Z",
     "type": "WeightTraining",
+    "weight_reps": 141,
+    "weight_sets": 19,
+    "weight_volume_lbs": 14905.0,
     "year": 2024
   },
   {
@@ -257,6 +314,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2024-05-15T18:47:11Z",
     "type": "WeightTraining",
+    "weight_reps": 127,
+    "weight_sets": 16,
+    "weight_volume_lbs": 8845.0,
     "year": 2024
   },
   {
@@ -270,6 +330,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2024-05-16T15:39:54Z",
     "type": "WeightTraining",
+    "weight_reps": 138,
+    "weight_sets": 19,
+    "weight_volume_lbs": 11865.0,
     "year": 2024
   },
   {
@@ -283,6 +346,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2024-05-19T15:03:42Z",
     "type": "WeightTraining",
+    "weight_reps": 147,
+    "weight_sets": 21,
+    "weight_volume_lbs": 11170.0,
     "year": 2024
   },
   {
@@ -296,6 +362,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2024-05-21T17:29:13Z",
     "type": "WeightTraining",
+    "weight_reps": 113,
+    "weight_sets": 16,
+    "weight_volume_lbs": 12720.0,
     "year": 2024
   },
   {
@@ -309,6 +378,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2024-05-25T12:49:38Z",
     "type": "WeightTraining",
+    "weight_reps": 78,
+    "weight_sets": 9,
+    "weight_volume_lbs": 4880.0,
     "year": 2024
   },
   {
@@ -322,6 +394,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2024-05-30T15:52:00Z",
     "type": "WeightTraining",
+    "weight_reps": 133,
+    "weight_sets": 19,
+    "weight_volume_lbs": 13480.0,
     "year": 2024
   },
   {
@@ -335,6 +410,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2024-05-31T13:26:50Z",
     "type": "WeightTraining",
+    "weight_reps": 72,
+    "weight_sets": 12,
+    "weight_volume_lbs": 6790.0,
     "year": 2024
   },
   {
@@ -348,6 +426,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2024-06-01T14:15:20Z",
     "type": "WeightTraining",
+    "weight_reps": 107,
+    "weight_sets": 16,
+    "weight_volume_lbs": 6195.0,
     "year": 2024
   },
   {
@@ -361,6 +442,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2024-06-02T14:31:24Z",
     "type": "WeightTraining",
+    "weight_reps": 96,
+    "weight_sets": 15,
+    "weight_volume_lbs": 11330.0,
     "year": 2024
   },
   {
@@ -374,6 +458,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2024-06-04T15:39:04Z",
     "type": "WeightTraining",
+    "weight_reps": 139,
+    "weight_sets": 21,
+    "weight_volume_lbs": 12885.0,
     "year": 2024
   },
   {
@@ -387,6 +474,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2024-06-12T18:03:34Z",
     "type": "WeightTraining",
+    "weight_reps": 34,
+    "weight_sets": 4,
+    "weight_volume_lbs": 4300.0,
     "year": 2024
   },
   {
@@ -400,6 +490,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2024-06-17T10:34:38Z",
     "type": "WeightTraining",
+    "weight_reps": 81,
+    "weight_sets": 14,
+    "weight_volume_lbs": 10205.0,
     "year": 2024
   },
   {
@@ -413,6 +506,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2024-06-19T18:21:12Z",
     "type": "WeightTraining",
+    "weight_reps": 111,
+    "weight_sets": 19,
+    "weight_volume_lbs": 9230.0,
     "year": 2024
   },
   {
@@ -426,6 +522,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2024-06-20T12:23:02Z",
     "type": "WeightTraining",
+    "weight_reps": 114,
+    "weight_sets": 17,
+    "weight_volume_lbs": 12860.0,
     "year": 2024
   },
   {
@@ -439,6 +538,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2024-07-22T23:52:37Z",
     "type": "WeightTraining",
+    "weight_reps": 99,
+    "weight_sets": 17,
+    "weight_volume_lbs": 6365.0,
     "year": 2024
   },
   {
@@ -452,6 +554,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2024-07-30T13:29:20Z",
     "type": "WeightTraining",
+    "weight_reps": 30,
+    "weight_sets": 6,
+    "weight_volume_lbs": 5010.0,
     "year": 2024
   },
   {
@@ -465,6 +570,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2024-08-20T17:30:34Z",
     "type": "WeightTraining",
+    "weight_reps": 88,
+    "weight_sets": 15,
+    "weight_volume_lbs": 7455.0,
     "year": 2024
   },
   {
@@ -478,6 +586,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2024-08-23T17:22:24Z",
     "type": "WeightTraining",
+    "weight_reps": 78,
+    "weight_sets": 12,
+    "weight_volume_lbs": 8565.0,
     "year": 2024
   },
   {
@@ -491,6 +602,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2024-08-24T15:16:13Z",
     "type": "WeightTraining",
+    "weight_reps": 98,
+    "weight_sets": 15,
+    "weight_volume_lbs": 9240.0,
     "year": 2024
   },
   {
@@ -504,6 +618,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2024-08-25T16:36:44Z",
     "type": "WeightTraining",
+    "weight_reps": 53,
+    "weight_sets": 8,
+    "weight_volume_lbs": 7710.0,
     "year": 2024
   },
   {
@@ -517,6 +634,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2024-08-27T17:41:04Z",
     "type": "WeightTraining",
+    "weight_reps": 93,
+    "weight_sets": 16,
+    "weight_volume_lbs": 8870.0,
     "year": 2024
   },
   {
@@ -530,6 +650,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2024-09-03T22:02:22Z",
     "type": "WeightTraining",
+    "weight_reps": 67,
+    "weight_sets": 11,
+    "weight_volume_lbs": 4100.0,
     "year": 2024
   },
   {
@@ -543,6 +666,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2024-09-04T20:52:54Z",
     "type": "WeightTraining",
+    "weight_reps": 131,
+    "weight_sets": 21,
+    "weight_volume_lbs": 10071.0,
     "year": 2024
   },
   {
@@ -556,6 +682,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2024-09-07T16:33:11Z",
     "type": "WeightTraining",
+    "weight_reps": 39,
+    "weight_sets": 6,
+    "weight_volume_lbs": 5500.5,
     "year": 2024
   },
   {
@@ -569,6 +698,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2024-09-09T22:10:30Z",
     "type": "WeightTraining",
+    "weight_reps": 82,
+    "weight_sets": 16,
+    "weight_volume_lbs": 5062.0,
     "year": 2024
   },
   {
@@ -582,6 +714,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2024-09-13T16:23:56Z",
     "type": "WeightTraining",
+    "weight_reps": 83,
+    "weight_sets": 9,
+    "weight_volume_lbs": 5870.0,
     "year": 2024
   },
   {
@@ -595,6 +730,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2024-10-02T20:38:00Z",
     "type": "WeightTraining",
+    "weight_reps": 41,
+    "weight_sets": 6,
+    "weight_volume_lbs": 3390.0,
     "year": 2024
   },
   {
@@ -608,6 +746,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2024-10-15T17:21:19Z",
     "type": "WeightTraining",
+    "weight_reps": 78,
+    "weight_sets": 12,
+    "weight_volume_lbs": 5710.0,
     "year": 2024
   },
   {
@@ -621,6 +762,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2024-10-31T14:23:02Z",
     "type": "WeightTraining",
+    "weight_reps": 49,
+    "weight_sets": 8,
+    "weight_volume_lbs": 4170.0,
     "year": 2024
   },
   {
@@ -634,6 +778,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2024-11-04T21:09:39Z",
     "type": "WeightTraining",
+    "weight_reps": 46,
+    "weight_sets": 6,
+    "weight_volume_lbs": 5379.5,
     "year": 2024
   },
   {
@@ -647,6 +794,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2024-11-06T20:51:28Z",
     "type": "WeightTraining",
+    "weight_reps": 40,
+    "weight_sets": 5,
+    "weight_volume_lbs": 2050.0,
     "year": 2024
   },
   {
@@ -660,6 +810,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2025-01-22T19:41:46Z",
     "type": "WeightTraining",
+    "weight_reps": 96,
+    "weight_sets": 15,
+    "weight_volume_lbs": 4952.5,
     "year": 2025
   },
   {
@@ -673,6 +826,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2025-01-24T22:39:46Z",
     "type": "WeightTraining",
+    "weight_reps": 90,
+    "weight_sets": 12,
+    "weight_volume_lbs": 10366.0,
     "year": 2025
   },
   {
@@ -686,6 +842,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2025-01-28T01:07:33Z",
     "type": "WeightTraining",
+    "weight_reps": 125,
+    "weight_sets": 24,
+    "weight_volume_lbs": 8015.0,
     "year": 2025
   },
   {
@@ -699,6 +858,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2025-01-29T23:42:38Z",
     "type": "WeightTraining",
+    "weight_reps": 92,
+    "weight_sets": 17,
+    "weight_volume_lbs": 9880.0,
     "year": 2025
   },
   {
@@ -712,6 +874,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2025-02-08T22:35:55Z",
     "type": "WeightTraining",
+    "weight_reps": 73,
+    "weight_sets": 13,
+    "weight_volume_lbs": 4285.0,
     "year": 2025
   },
   {
@@ -725,6 +890,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2025-02-26T19:57:52Z",
     "type": "WeightTraining",
+    "weight_reps": 40,
+    "weight_sets": 7,
+    "weight_volume_lbs": 6192.5,
     "year": 2025
   },
   {
@@ -738,6 +906,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2025-03-31T21:43:35Z",
     "type": "WeightTraining",
+    "weight_reps": 100,
+    "weight_sets": 16,
+    "weight_volume_lbs": 5030.0,
     "year": 2025
   },
   {
@@ -751,6 +922,9 @@
     "raw_type": "Walk",
     "start_date_local": "2025-04-05T12:33:40Z",
     "type": "Walk",
+    "weight_reps": 0,
+    "weight_sets": 0,
+    "weight_volume_lbs": 0.0,
     "year": 2025
   },
   {
@@ -764,6 +938,9 @@
     "raw_type": "Walk",
     "start_date_local": "2025-04-06T12:20:23Z",
     "type": "Walk",
+    "weight_reps": 0,
+    "weight_sets": 0,
+    "weight_volume_lbs": 0.0,
     "year": 2025
   },
   {
@@ -777,6 +954,9 @@
     "raw_type": "Workout",
     "start_date_local": "2025-04-07T17:21:50Z",
     "type": "Workout",
+    "weight_reps": 0,
+    "weight_sets": 0,
+    "weight_volume_lbs": 0.0,
     "year": 2025
   },
   {
@@ -790,6 +970,9 @@
     "raw_type": "Walk",
     "start_date_local": "2025-04-08T19:14:03Z",
     "type": "Walk",
+    "weight_reps": 0,
+    "weight_sets": 0,
+    "weight_volume_lbs": 0.0,
     "year": 2025
   },
   {
@@ -803,6 +986,9 @@
     "raw_type": "Walk",
     "start_date_local": "2025-04-14T18:36:01Z",
     "type": "Walk",
+    "weight_reps": 0,
+    "weight_sets": 0,
+    "weight_volume_lbs": 0.0,
     "year": 2025
   },
   {
@@ -816,6 +1002,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2025-04-20T21:33:04Z",
     "type": "WeightTraining",
+    "weight_reps": 96,
+    "weight_sets": 17,
+    "weight_volume_lbs": 5252.5,
     "year": 2025
   },
   {
@@ -829,6 +1018,9 @@
     "raw_type": "Walk",
     "start_date_local": "2025-04-20T17:53:13Z",
     "type": "Walk",
+    "weight_reps": 0,
+    "weight_sets": 0,
+    "weight_volume_lbs": 0.0,
     "year": 2025
   },
   {
@@ -842,6 +1034,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2025-04-21T22:15:18Z",
     "type": "WeightTraining",
+    "weight_reps": 68,
+    "weight_sets": 12,
+    "weight_volume_lbs": 6412.5,
     "year": 2025
   },
   {
@@ -855,6 +1050,9 @@
     "raw_type": "Run",
     "start_date_local": "2025-04-23T18:57:47Z",
     "type": "Run",
+    "weight_reps": 0,
+    "weight_sets": 0,
+    "weight_volume_lbs": 0.0,
     "year": 2025
   },
   {
@@ -868,6 +1066,9 @@
     "raw_type": "Run",
     "start_date_local": "2025-04-24T18:25:14Z",
     "type": "Run",
+    "weight_reps": 0,
+    "weight_sets": 0,
+    "weight_volume_lbs": 0.0,
     "year": 2025
   },
   {
@@ -881,6 +1082,9 @@
     "raw_type": "Walk",
     "start_date_local": "2025-04-28T18:18:15Z",
     "type": "Walk",
+    "weight_reps": 0,
+    "weight_sets": 0,
+    "weight_volume_lbs": 0.0,
     "year": 2025
   },
   {
@@ -894,6 +1098,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2025-04-29T17:33:14Z",
     "type": "WeightTraining",
+    "weight_reps": 100,
+    "weight_sets": 14,
+    "weight_volume_lbs": 5865.0,
     "year": 2025
   },
   {
@@ -907,6 +1114,9 @@
     "raw_type": "Run",
     "start_date_local": "2025-05-01T18:56:28Z",
     "type": "Run",
+    "weight_reps": 0,
+    "weight_sets": 0,
+    "weight_volume_lbs": 0.0,
     "year": 2025
   },
   {
@@ -920,6 +1130,9 @@
     "raw_type": "Run",
     "start_date_local": "2025-05-02T21:20:24Z",
     "type": "Run",
+    "weight_reps": 0,
+    "weight_sets": 0,
+    "weight_volume_lbs": 0.0,
     "year": 2025
   },
   {
@@ -933,6 +1146,9 @@
     "raw_type": "Run",
     "start_date_local": "2025-05-04T20:27:24Z",
     "type": "Run",
+    "weight_reps": 0,
+    "weight_sets": 0,
+    "weight_volume_lbs": 0.0,
     "year": 2025
   },
   {
@@ -946,6 +1162,9 @@
     "raw_type": "Run",
     "start_date_local": "2025-05-05T18:28:11Z",
     "type": "Run",
+    "weight_reps": 0,
+    "weight_sets": 0,
+    "weight_volume_lbs": 0.0,
     "year": 2025
   },
   {
@@ -959,6 +1178,9 @@
     "raw_type": "Walk",
     "start_date_local": "2025-05-07T20:02:21Z",
     "type": "Walk",
+    "weight_reps": 0,
+    "weight_sets": 0,
+    "weight_volume_lbs": 0.0,
     "year": 2025
   },
   {
@@ -972,6 +1194,9 @@
     "raw_type": "Walk",
     "start_date_local": "2025-05-08T18:26:03Z",
     "type": "Walk",
+    "weight_reps": 0,
+    "weight_sets": 0,
+    "weight_volume_lbs": 0.0,
     "year": 2025
   },
   {
@@ -985,6 +1210,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2025-05-08T19:57:43Z",
     "type": "WeightTraining",
+    "weight_reps": 104,
+    "weight_sets": 16,
+    "weight_volume_lbs": 5885.0,
     "year": 2025
   },
   {
@@ -998,6 +1226,9 @@
     "raw_type": "Run",
     "start_date_local": "2025-05-15T18:39:39Z",
     "type": "Run",
+    "weight_reps": 0,
+    "weight_sets": 0,
+    "weight_volume_lbs": 0.0,
     "year": 2025
   },
   {
@@ -1011,6 +1242,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2025-05-22T16:17:31Z",
     "type": "WeightTraining",
+    "weight_reps": 109,
+    "weight_sets": 17,
+    "weight_volume_lbs": 6440.0,
     "year": 2025
   },
   {
@@ -1024,6 +1258,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2025-05-26T18:55:34Z",
     "type": "WeightTraining",
+    "weight_reps": 94,
+    "weight_sets": 12,
+    "weight_volume_lbs": 11297.5,
     "year": 2025
   },
   {
@@ -1037,6 +1274,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2025-05-27T16:49:07Z",
     "type": "WeightTraining",
+    "weight_reps": 85,
+    "weight_sets": 14,
+    "weight_volume_lbs": 7852.5,
     "year": 2025
   },
   {
@@ -1050,6 +1290,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2025-05-29T18:03:06Z",
     "type": "WeightTraining",
+    "weight_reps": 89,
+    "weight_sets": 12,
+    "weight_volume_lbs": 8681.5,
     "year": 2025
   },
   {
@@ -1063,6 +1306,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2025-06-03T15:56:46Z",
     "type": "WeightTraining",
+    "weight_reps": 151,
+    "weight_sets": 21,
+    "weight_volume_lbs": 9210.0,
     "year": 2025
   },
   {
@@ -1076,6 +1322,9 @@
     "raw_type": "Walk",
     "start_date_local": "2025-06-03T18:27:48Z",
     "type": "Walk",
+    "weight_reps": 0,
+    "weight_sets": 0,
+    "weight_volume_lbs": 0.0,
     "year": 2025
   },
   {
@@ -1089,6 +1338,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2025-07-27T16:34:34Z",
     "type": "WeightTraining",
+    "weight_reps": 138,
+    "weight_sets": 24,
+    "weight_volume_lbs": 11340.0,
     "year": 2025
   },
   {
@@ -1102,6 +1354,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2025-07-29T19:04:45Z",
     "type": "WeightTraining",
+    "weight_reps": 124,
+    "weight_sets": 21,
+    "weight_volume_lbs": 13603.0,
     "year": 2025
   },
   {
@@ -1115,6 +1370,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2025-07-31T17:11:03Z",
     "type": "WeightTraining",
+    "weight_reps": 108,
+    "weight_sets": 17,
+    "weight_volume_lbs": 7015.0,
     "year": 2025
   },
   {
@@ -1128,6 +1386,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2025-08-05T20:33:13Z",
     "type": "WeightTraining",
+    "weight_reps": 131,
+    "weight_sets": 18,
+    "weight_volume_lbs": 10300.0,
     "year": 2025
   },
   {
@@ -1141,6 +1402,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2025-08-07T19:50:38Z",
     "type": "WeightTraining",
+    "weight_reps": 97,
+    "weight_sets": 15,
+    "weight_volume_lbs": 10400.0,
     "year": 2025
   },
   {
@@ -1154,6 +1418,9 @@
     "raw_type": "Walk",
     "start_date_local": "2025-08-07T20:32:24Z",
     "type": "Walk",
+    "weight_reps": 0,
+    "weight_sets": 0,
+    "weight_volume_lbs": 0.0,
     "year": 2025
   },
   {
@@ -1167,6 +1434,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2025-08-08T19:54:05Z",
     "type": "WeightTraining",
+    "weight_reps": 151,
+    "weight_sets": 22,
+    "weight_volume_lbs": 13475.0,
     "year": 2025
   },
   {
@@ -1180,6 +1450,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2025-08-09T20:20:19Z",
     "type": "WeightTraining",
+    "weight_reps": 149,
+    "weight_sets": 20,
+    "weight_volume_lbs": 14967.5,
     "year": 2025
   },
   {
@@ -1193,6 +1466,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2025-08-14T20:57:58Z",
     "type": "WeightTraining",
+    "weight_reps": 84,
+    "weight_sets": 12,
+    "weight_volume_lbs": 7537.5,
     "year": 2025
   },
   {
@@ -1206,6 +1482,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2025-08-15T18:42:02Z",
     "type": "WeightTraining",
+    "weight_reps": 119,
+    "weight_sets": 16,
+    "weight_volume_lbs": 11405.0,
     "year": 2025
   },
   {
@@ -1219,6 +1498,9 @@
     "raw_type": "Ride",
     "start_date_local": "2025-08-18T16:59:08Z",
     "type": "Ride",
+    "weight_reps": 0,
+    "weight_sets": 0,
+    "weight_volume_lbs": 0.0,
     "year": 2025
   },
   {
@@ -1232,6 +1514,9 @@
     "raw_type": "Walk",
     "start_date_local": "2025-08-18T17:52:07Z",
     "type": "Walk",
+    "weight_reps": 0,
+    "weight_sets": 0,
+    "weight_volume_lbs": 0.0,
     "year": 2025
   },
   {
@@ -1245,6 +1530,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2025-08-19T21:24:32Z",
     "type": "WeightTraining",
+    "weight_reps": 63,
+    "weight_sets": 8,
+    "weight_volume_lbs": 6857.5,
     "year": 2025
   },
   {
@@ -1258,6 +1546,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2025-08-20T16:27:18Z",
     "type": "WeightTraining",
+    "weight_reps": 95,
+    "weight_sets": 12,
+    "weight_volume_lbs": 9440.0,
     "year": 2025
   },
   {
@@ -1271,6 +1562,9 @@
     "raw_type": "StairStepper",
     "start_date_local": "2025-08-20T17:08:55Z",
     "type": "StairStepper",
+    "weight_reps": 0,
+    "weight_sets": 0,
+    "weight_volume_lbs": 0.0,
     "year": 2025
   },
   {
@@ -1284,6 +1578,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2025-08-23T20:25:48Z",
     "type": "WeightTraining",
+    "weight_reps": 114,
+    "weight_sets": 16,
+    "weight_volume_lbs": 11942.5,
     "year": 2025
   },
   {
@@ -1297,6 +1594,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2025-08-25T17:39:29Z",
     "type": "WeightTraining",
+    "weight_reps": 80,
+    "weight_sets": 11,
+    "weight_volume_lbs": 8840.0,
     "year": 2025
   },
   {
@@ -1310,6 +1610,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2025-08-27T20:11:41Z",
     "type": "WeightTraining",
+    "weight_reps": 118,
+    "weight_sets": 15,
+    "weight_volume_lbs": 11980.0,
     "year": 2025
   },
   {
@@ -1323,6 +1626,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2025-08-29T20:08:55Z",
     "type": "WeightTraining",
+    "weight_reps": 103,
+    "weight_sets": 15,
+    "weight_volume_lbs": 11897.5,
     "year": 2025
   },
   {
@@ -1336,6 +1642,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2025-09-02T21:21:46Z",
     "type": "WeightTraining",
+    "weight_reps": 86,
+    "weight_sets": 14,
+    "weight_volume_lbs": 5910.0,
     "year": 2025
   },
   {
@@ -1349,6 +1658,9 @@
     "raw_type": "Run",
     "start_date_local": "2025-09-03T16:40:39Z",
     "type": "Run",
+    "weight_reps": 0,
+    "weight_sets": 0,
+    "weight_volume_lbs": 0.0,
     "year": 2025
   },
   {
@@ -1362,6 +1674,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2025-09-07T18:23:04Z",
     "type": "WeightTraining",
+    "weight_reps": 147,
+    "weight_sets": 20,
+    "weight_volume_lbs": 15382.5,
     "year": 2025
   },
   {
@@ -1375,6 +1690,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2025-09-08T19:40:01Z",
     "type": "WeightTraining",
+    "weight_reps": 133,
+    "weight_sets": 19,
+    "weight_volume_lbs": 14160.0,
     "year": 2025
   },
   {
@@ -1388,6 +1706,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2025-09-11T22:38:19Z",
     "type": "WeightTraining",
+    "weight_reps": 131,
+    "weight_sets": 18,
+    "weight_volume_lbs": 14961.4,
     "year": 2025
   },
   {
@@ -1401,6 +1722,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2025-09-13T20:25:35Z",
     "type": "WeightTraining",
+    "weight_reps": 54,
+    "weight_sets": 8,
+    "weight_volume_lbs": 8140.0,
     "year": 2025
   },
   {
@@ -1414,6 +1738,9 @@
     "raw_type": "Walk",
     "start_date_local": "2025-09-22T18:28:32Z",
     "type": "Walk",
+    "weight_reps": 0,
+    "weight_sets": 0,
+    "weight_volume_lbs": 0.0,
     "year": 2025
   },
   {
@@ -1427,6 +1754,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2025-09-29T17:54:48Z",
     "type": "WeightTraining",
+    "weight_reps": 74,
+    "weight_sets": 12,
+    "weight_volume_lbs": 7700.0,
     "year": 2025
   },
   {
@@ -1440,6 +1770,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2025-10-06T20:22:10Z",
     "type": "WeightTraining",
+    "weight_reps": 48,
+    "weight_sets": 9,
+    "weight_volume_lbs": 5892.5,
     "year": 2025
   },
   {
@@ -1453,6 +1786,9 @@
     "raw_type": "Walk",
     "start_date_local": "2025-10-06T20:53:00Z",
     "type": "Walk",
+    "weight_reps": 0,
+    "weight_sets": 0,
+    "weight_volume_lbs": 0.0,
     "year": 2025
   },
   {
@@ -1466,6 +1802,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2025-10-09T22:06:00Z",
     "type": "WeightTraining",
+    "weight_reps": 168,
+    "weight_sets": 18,
+    "weight_volume_lbs": 15445.0,
     "year": 2025
   },
   {
@@ -1479,6 +1818,9 @@
     "raw_type": "Run",
     "start_date_local": "2025-10-12T20:35:31Z",
     "type": "Run",
+    "weight_reps": 0,
+    "weight_sets": 0,
+    "weight_volume_lbs": 0.0,
     "year": 2025
   },
   {
@@ -1492,6 +1834,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2025-10-15T20:39:27Z",
     "type": "WeightTraining",
+    "weight_reps": 124,
+    "weight_sets": 18,
+    "weight_volume_lbs": 13557.5,
     "year": 2025
   },
   {
@@ -1505,6 +1850,9 @@
     "raw_type": "Run",
     "start_date_local": "2025-10-15T21:26:55Z",
     "type": "Run",
+    "weight_reps": 0,
+    "weight_sets": 0,
+    "weight_volume_lbs": 0.0,
     "year": 2025
   },
   {
@@ -1518,6 +1866,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2025-10-28T23:47:42Z",
     "type": "WeightTraining",
+    "weight_reps": 76,
+    "weight_sets": 12,
+    "weight_volume_lbs": 8522.5,
     "year": 2025
   },
   {
@@ -1531,6 +1882,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2025-11-02T11:32:48Z",
     "type": "WeightTraining",
+    "weight_reps": 77,
+    "weight_sets": 14,
+    "weight_volume_lbs": 9100.0,
     "year": 2025
   },
   {
@@ -1544,6 +1898,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2025-11-07T21:23:25Z",
     "type": "WeightTraining",
+    "weight_reps": 86,
+    "weight_sets": 12,
+    "weight_volume_lbs": 10915.0,
     "year": 2025
   },
   {
@@ -1557,6 +1914,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2025-11-09T21:33:43Z",
     "type": "WeightTraining",
+    "weight_reps": 63,
+    "weight_sets": 9,
+    "weight_volume_lbs": 8654.0,
     "year": 2025
   },
   {
@@ -1570,6 +1930,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2025-11-23T20:32:54Z",
     "type": "WeightTraining",
+    "weight_reps": 83,
+    "weight_sets": 15,
+    "weight_volume_lbs": 9920.0,
     "year": 2025
   },
   {
@@ -1583,6 +1946,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2025-12-12T20:47:34Z",
     "type": "WeightTraining",
+    "weight_reps": 94,
+    "weight_sets": 17,
+    "weight_volume_lbs": 10452.5,
     "year": 2025
   },
   {
@@ -1596,6 +1962,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2025-12-19T20:53:51Z",
     "type": "WeightTraining",
+    "weight_reps": 70,
+    "weight_sets": 13,
+    "weight_volume_lbs": 8182.5,
     "year": 2025
   },
   {
@@ -1609,6 +1978,9 @@
     "raw_type": "Ride",
     "start_date_local": "2025-12-24T18:39:28Z",
     "type": "Ride",
+    "weight_reps": 0,
+    "weight_sets": 0,
+    "weight_volume_lbs": 0.0,
     "year": 2025
   },
   {
@@ -1622,6 +1994,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2025-12-25T22:34:49Z",
     "type": "WeightTraining",
+    "weight_reps": 47,
+    "weight_sets": 8,
+    "weight_volume_lbs": 4780.0,
     "year": 2025
   },
   {
@@ -1635,6 +2010,9 @@
     "raw_type": "Workout",
     "start_date_local": "2025-12-25T13:16:37Z",
     "type": "Workout",
+    "weight_reps": 0,
+    "weight_sets": 0,
+    "weight_volume_lbs": 0.0,
     "year": 2025
   },
   {
@@ -1648,6 +2026,9 @@
     "raw_type": "Ride",
     "start_date_local": "2025-12-25T11:35:24Z",
     "type": "Ride",
+    "weight_reps": 0,
+    "weight_sets": 0,
+    "weight_volume_lbs": 0.0,
     "year": 2025
   },
   {
@@ -1661,6 +2042,9 @@
     "raw_type": "Walk",
     "start_date_local": "2025-12-26T13:37:10Z",
     "type": "Walk",
+    "weight_reps": 0,
+    "weight_sets": 0,
+    "weight_volume_lbs": 0.0,
     "year": 2025
   },
   {
@@ -1674,6 +2058,9 @@
     "raw_type": "Ride",
     "start_date_local": "2025-12-27T15:51:16Z",
     "type": "Ride",
+    "weight_reps": 0,
+    "weight_sets": 0,
+    "weight_volume_lbs": 0.0,
     "year": 2025
   },
   {
@@ -1687,6 +2074,9 @@
     "raw_type": "Ride",
     "start_date_local": "2025-12-27T21:34:38Z",
     "type": "Ride",
+    "weight_reps": 0,
+    "weight_sets": 0,
+    "weight_volume_lbs": 0.0,
     "year": 2025
   },
   {
@@ -1700,6 +2090,9 @@
     "raw_type": "Ride",
     "start_date_local": "2025-12-27T22:27:37Z",
     "type": "Ride",
+    "weight_reps": 0,
+    "weight_sets": 0,
+    "weight_volume_lbs": 0.0,
     "year": 2025
   },
   {
@@ -1713,6 +2106,9 @@
     "raw_type": "Ride",
     "start_date_local": "2025-12-28T15:20:55Z",
     "type": "Ride",
+    "weight_reps": 0,
+    "weight_sets": 0,
+    "weight_volume_lbs": 0.0,
     "year": 2025
   },
   {
@@ -1726,6 +2122,9 @@
     "raw_type": "Ride",
     "start_date_local": "2025-12-29T13:13:07Z",
     "type": "Ride",
+    "weight_reps": 0,
+    "weight_sets": 0,
+    "weight_volume_lbs": 0.0,
     "year": 2025
   },
   {
@@ -1739,6 +2138,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2025-12-29T13:50:47Z",
     "type": "WeightTraining",
+    "weight_reps": 32,
+    "weight_sets": 6,
+    "weight_volume_lbs": 5465.0,
     "year": 2025
   },
   {
@@ -1752,6 +2154,9 @@
     "raw_type": "Ride",
     "start_date_local": "2025-12-29T14:16:19Z",
     "type": "Ride",
+    "weight_reps": 0,
+    "weight_sets": 0,
+    "weight_volume_lbs": 0.0,
     "year": 2025
   },
   {
@@ -1765,6 +2170,9 @@
     "raw_type": "Workout",
     "start_date_local": "2025-12-29T19:01:01Z",
     "type": "Workout",
+    "weight_reps": 0,
+    "weight_sets": 0,
+    "weight_volume_lbs": 0.0,
     "year": 2025
   },
   {
@@ -1778,6 +2186,9 @@
     "raw_type": "Walk",
     "start_date_local": "2026-01-03T16:07:42Z",
     "type": "Walk",
+    "weight_reps": 0,
+    "weight_sets": 0,
+    "weight_volume_lbs": 0.0,
     "year": 2026
   },
   {
@@ -1791,6 +2202,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2026-01-17T21:25:18Z",
     "type": "WeightTraining",
+    "weight_reps": 29,
+    "weight_sets": 5,
+    "weight_volume_lbs": 4400.0,
     "year": 2026
   },
   {
@@ -1804,6 +2218,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2026-01-20T02:17:59Z",
     "type": "WeightTraining",
+    "weight_reps": 86,
+    "weight_sets": 12,
+    "weight_volume_lbs": 7985.0,
     "year": 2026
   },
   {
@@ -1817,6 +2234,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2026-02-01T21:11:27Z",
     "type": "WeightTraining",
+    "weight_reps": 72,
+    "weight_sets": 11,
+    "weight_volume_lbs": 8820.0,
     "year": 2026
   },
   {
@@ -1830,6 +2250,9 @@
     "raw_type": "Run",
     "start_date_local": "2026-02-01T21:43:28Z",
     "type": "Run",
+    "weight_reps": 0,
+    "weight_sets": 0,
+    "weight_volume_lbs": 0.0,
     "year": 2026
   },
   {
@@ -1843,6 +2266,9 @@
     "raw_type": "Run",
     "start_date_local": "2026-02-06T08:48:18Z",
     "type": "Run",
+    "weight_reps": 0,
+    "weight_sets": 0,
+    "weight_volume_lbs": 0.0,
     "year": 2026
   },
   {
@@ -1856,6 +2282,9 @@
     "raw_type": "Run",
     "start_date_local": "2026-02-08T10:53:47Z",
     "type": "Run",
+    "weight_reps": 0,
+    "weight_sets": 0,
+    "weight_volume_lbs": 0.0,
     "year": 2026
   },
   {
@@ -1869,6 +2298,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2026-02-10T14:39:40Z",
     "type": "WeightTraining",
+    "weight_reps": 75,
+    "weight_sets": 12,
+    "weight_volume_lbs": 7230.0,
     "year": 2026
   },
   {
@@ -1882,6 +2314,9 @@
     "raw_type": "Run",
     "start_date_local": "2026-02-10T15:14:19Z",
     "type": "Run",
+    "weight_reps": 0,
+    "weight_sets": 0,
+    "weight_volume_lbs": 0.0,
     "year": 2026
   },
   {
@@ -1895,6 +2330,9 @@
     "raw_type": "Run",
     "start_date_local": "2026-02-12T17:01:09Z",
     "type": "Run",
+    "weight_reps": 0,
+    "weight_sets": 0,
+    "weight_volume_lbs": 0.0,
     "year": 2026
   },
   {
@@ -1908,6 +2346,9 @@
     "raw_type": "WeightTraining",
     "start_date_local": "2026-02-14T13:34:45Z",
     "type": "WeightTraining",
+    "weight_reps": 74,
+    "weight_sets": 12,
+    "weight_volume_lbs": 8340.0,
     "year": 2026
   },
   {
@@ -1921,6 +2362,9 @@
     "raw_type": "Run",
     "start_date_local": "2026-02-16T16:28:41Z",
     "type": "Run",
+    "weight_reps": 0,
+    "weight_sets": 0,
+    "weight_volume_lbs": 0.0,
     "year": 2026
   },
   {
@@ -1934,6 +2378,9 @@
     "raw_type": "Run",
     "start_date_local": "2026-02-17T17:34:07Z",
     "type": "Run",
+    "weight_reps": 0,
+    "weight_sets": 0,
+    "weight_volume_lbs": 0.0,
     "year": 2026
   }
 ]

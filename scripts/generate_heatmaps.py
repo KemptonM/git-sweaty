@@ -7,6 +7,7 @@ from datetime import date, timedelta
 from typing import Callable, Dict, List, Optional
 
 from activity_types import build_type_meta, featured_types_from_config, ordered_types
+from repo_helpers import choose_repo_slug_from_env, normalize_repo_slug
 from utils import (
     ensure_dir,
     format_distance,
@@ -47,7 +48,6 @@ DAY_LABELS_BY_WEEK_START = {
     "sunday": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
     "monday": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
 }
-REPO_SLUG_RE = re.compile(r"^[^/\s]+/[^/\s]+$")
 STRAVA_HOST_RE = re.compile(r"(^|\.)strava\.com$", re.IGNORECASE)
 GARMIN_CONNECT_HOST_RE = re.compile(r"(^|\.)connect\.garmin\.com$", re.IGNORECASE)
 
@@ -189,10 +189,13 @@ def _type_totals(aggregates_years: Dict) -> Dict[str, int]:
 
 
 def _repo_slug_from_git() -> Optional[str]:
-    for env_name in ("DASHBOARD_REPO", "GITHUB_REPOSITORY"):
-        env_slug = os.environ.get(env_name, "").strip()
-        if env_slug and REPO_SLUG_RE.match(env_slug):
-            return env_slug
+    env_slug = choose_repo_slug_from_env(
+        dashboard_repo=os.environ.get("DASHBOARD_REPO", ""),
+        github_repository=os.environ.get("GITHUB_REPOSITORY", ""),
+        github_actions=os.environ.get("GITHUB_ACTIONS", ""),
+    )
+    if env_slug:
+        return env_slug
 
     try:
         result = subprocess.run(
@@ -204,14 +207,7 @@ def _repo_slug_from_git() -> Optional[str]:
     except (subprocess.CalledProcessError, FileNotFoundError):
         return None
 
-    url = result.stdout.strip()
-    # Handles:
-    # - https://github.com/owner/repo.git
-    # - git@github.com:owner/repo.git
-    match = re.search(r"github\.com[:/](?P<owner>[^/]+)/(?P<repo>[^/.]+)(?:\.git)?$", url)
-    if not match:
-        return None
-    return f"{match.group('owner')}/{match.group('repo')}"
+    return normalize_repo_slug(result.stdout.strip())
 
 
 def _host_regex_for_source(source: str) -> Optional[re.Pattern]:

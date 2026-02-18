@@ -3,12 +3,17 @@ import json
 import os
 import re
 import subprocess
-import urllib.parse
 import urllib.request
 from typing import Optional
 
 from aggregate import aggregate as aggregate_func
 from normalize import normalize as normalize_func
+from repo_helpers import (
+    choose_repo_slug_from_env,
+    normalize_dashboard_url,
+    normalize_repo_slug,
+    pages_url_from_slug,
+)
 from sync_garmin import sync_garmin
 from sync_strava import sync_strava
 from utils import ensure_dir, load_config, normalize_source, write_json
@@ -41,7 +46,7 @@ SOURCE_HINT_STRAVA = "strava"
 SOURCE_HINT_GARMIN = "garmin"
 SOURCE_HINT_MIXED = "mixed"
 README_LIVE_SITE_RE = re.compile(
-    r"(?im)^(-\s*(?:Live site:\s*\[Interactive Heatmaps\]|View the Interactive \[Activity Dashboard\])\()https?://[^)]+(\)\s*)$",
+    r"(?im)^([ \t]*(?:-\s*)?(?:Live site:\s*\[Interactive Heatmaps\]|View the Interactive \[Activity Dashboard\])\()https?://[^)]+(\)[ \t]*\.?[ \t]*)$",
     re.IGNORECASE,
 )
 
@@ -57,10 +62,13 @@ def _write_aggregates(payload):
 
 
 def _repo_slug_from_git() -> Optional[str]:
-    for env_name in ("DASHBOARD_REPO", "GITHUB_REPOSITORY"):
-        env_slug = os.environ.get(env_name, "").strip()
-        if env_slug and "/" in env_slug:
-            return env_slug
+    env_slug = choose_repo_slug_from_env(
+        dashboard_repo=os.environ.get("DASHBOARD_REPO", ""),
+        github_repository=os.environ.get("GITHUB_REPOSITORY", ""),
+        github_actions=os.environ.get("GITHUB_ACTIONS", ""),
+    )
+    if env_slug:
+        return env_slug
 
     try:
         result = subprocess.run(
@@ -72,45 +80,15 @@ def _repo_slug_from_git() -> Optional[str]:
     except (subprocess.CalledProcessError, FileNotFoundError):
         return None
 
-    url = result.stdout.strip()
-    # Handles:
-    # - https://github.com/owner/repo.git
-    # - git@github.com:owner/repo.git
-    m = re.search(r"github\.com[:/](?P<owner>[^/]+)/(?P<repo>[^/.]+)(?:\.git)?$", url)
-    if not m:
-        return None
-    return f"{m.group('owner')}/{m.group('repo')}"
+    return normalize_repo_slug(result.stdout.strip())
 
 
 def _pages_url_from_slug(slug: str) -> str:
-    owner, repo = slug.split("/", 1)
-    if repo.lower() == f"{owner.lower()}.github.io":
-        return f"https://{owner}.github.io/"
-    return f"https://{owner}.github.io/{repo}/"
+    return pages_url_from_slug(slug)
 
 
 def _normalize_dashboard_url(value: str) -> str:
-    raw = str(value or "").strip()
-    if not raw:
-        return ""
-    if not re.match(r"^[a-z][a-z0-9+.-]*://", raw, re.IGNORECASE):
-        raw = f"https://{raw.lstrip('/')}"
-
-    parsed = urllib.parse.urlparse(raw)
-    scheme = str(parsed.scheme or "").lower()
-    if scheme not in {"http", "https"}:
-        return ""
-    host = str(parsed.netloc or "").strip()
-    if not host:
-        return ""
-
-    path = str(parsed.path or "/")
-    if not path.startswith("/"):
-        path = f"/{path}"
-    if not path.endswith("/") and not parsed.query:
-        path = f"{path}/"
-
-    return urllib.parse.urlunparse((scheme, host, path, "", parsed.query, ""))
+    return normalize_dashboard_url(value)
 
 
 def _dashboard_url_from_pages_api(repo_slug: str) -> Optional[str]:

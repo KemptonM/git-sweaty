@@ -1,14 +1,14 @@
-# Workout --> GitHub Heatmap Dashboard
+# Workout --> Interactive Dashboard
 
-Turn your Strava and Garmin activities into GitHub-style contribution heatmaps.  
-Automatically generates a free, interactive dashboard updated daily on GitHub Pages.  
+Turn your Strava and Garmin activities into GitHub-style contribution graphs. Automatically generate a free, interactive dashboard updated daily on GitHub Pages.  
+
 **No coding required.**  
 
-- View the Interactive [Activity Dashboard](https://kemptonm.github.io/git-sweaty/)
-  - Once setup is complete, this dashboard link will automatically update to your own GitHub Pages URL.
+View the Interactive [Activity Dashboard](https://aspain.github.io/git-sweaty/).  
+Once setup is complete, this dashboard link will automatically update to your own GitHub Pages URL.
 
 
-![Dashboard Preview](site/readme-preview-20260216b.png)
+![Dashboard Preview](site/readme-preview-20260217.png)
 
 ## Quick Start
 
@@ -21,13 +21,17 @@ bash <(curl -fsSL https://raw.githubusercontent.com/aspain/git-sweaty/main/scrip
 You will be prompted for:
 - Setup mode:
   - Local: setup script will create the fork, clone the repo, and complete the rest of the setup.
-  - Online (default): no local clone; setup script will configure a fork or an existing writable repo
+  - Online (recommended): no local clone; setup script will configure a fork or an existing writable repo
 - GitHub Pages custom domain (if you have one, for example `yoursite.example.com`)
 - Source (`strava` or `garmin`)
 - Unit preference (`US` or `Metric`)
 - Heatmap week start (`Sunday` or `Monday`)
 - Optional profile link in the dashboard header for the selected source (`Yes` or `No`)
 - Optional tooltip links to individual activities for the selected source (`Yes` or `No`)
+- Source auth credentials:
+  - Strava: prompt will provide a link to create a [Strava API application](https://www.strava.com/settings/api) first, set Authorization Callback Domain to `localhost`.
+    - Then paste the `client_id` + `client_secret` values in the prompt, then a browser tab will open for OAuth approval
+  - Garmin: account email + password
 
 The setup may take several minutes to complete when run for the first time. If any automation step fails, the script prints steps to remedy the failed step.  
 Once the script succeeds, it will provide the URL for your dashboard.

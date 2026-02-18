@@ -30,7 +30,7 @@ import json
 import webbrowser
 from email.utils import parsedate_to_datetime
 from dataclasses import dataclass
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from typing import Iterator, Optional, Tuple
 
 from garmin_token_store import (
@@ -39,6 +39,11 @@ from garmin_token_store import (
     hydrate_token_store_from_legacy_file,
     token_store_ready,
     write_token_store_bytes,
+)
+from repo_helpers import (
+    normalize_dashboard_url as _shared_normalize_dashboard_url,
+    normalize_repo_slug as _shared_normalize_repo_slug,
+    pages_url_from_slug as _shared_pages_url_from_slug,
 )
 
 if sys.version_info < (3, 9):
@@ -69,15 +74,6 @@ UNIT_PRESETS = {
 }
 DEFAULT_WEEK_START = "sunday"
 WEEK_START_CHOICES = {"sunday", "monday"}
-REPO_URL_RE = re.compile(
-    r"^https?://github\.com/(?P<owner>[^/]+)/(?P<repo>[^/]+)/?$",
-    re.IGNORECASE,
-)
-REPO_SSH_RE = re.compile(
-    r"^git@github\.com:(?P<owner>[^/]+)/(?P<repo>[^/]+)$",
-    re.IGNORECASE,
-)
-REPO_SLUG_RE = re.compile(r"^(?P<owner>[^/\s]+)/(?P<repo>[^/\s]+)$")
 STRAVA_HOST_RE = re.compile(r"(^|\.)strava\.com$", re.IGNORECASE)
 GARMIN_CONNECT_HOST_RE = re.compile(r"(^|\.)connect\.garmin\.com$", re.IGNORECASE)
 TRUTHY_BOOL_TEXT = {"1", "true", "yes", "y", "on"}
@@ -328,31 +324,7 @@ def _assert_actions_secret_access(repo: str) -> None:
 
 
 def _normalize_repo_slug(value: Optional[str]) -> Optional[str]:
-    if not value:
-        return None
-    raw = value.strip()
-    if not raw:
-        return None
-
-    m = REPO_URL_RE.match(raw)
-    if m:
-        repo = m.group("repo")
-        if repo.endswith(".git"):
-            repo = repo[:-4]
-        return f"{m.group('owner')}/{repo}"
-
-    m = REPO_SSH_RE.match(raw)
-    if m:
-        repo = m.group("repo")
-        if repo.endswith(".git"):
-            repo = repo[:-4]
-        return f"{m.group('owner')}/{repo}"
-
-    m = REPO_SLUG_RE.match(raw)
-    if m:
-        return f"{m.group('owner')}/{m.group('repo')}"
-
-    return None
+    return _shared_normalize_repo_slug(value)
 
 
 def _repo_slug_from_git() -> Optional[str]:
@@ -705,35 +677,11 @@ def _parse_iso8601_utc(value: str) -> Optional[datetime]:
 
 
 def _pages_url_from_slug(slug: str) -> str:
-    owner, repo = slug.split("/", 1)
-    if repo.lower() == f"{owner.lower()}.github.io":
-        return f"https://{owner}.github.io/"
-    return f"https://{owner}.github.io/{repo}/"
+    return _shared_pages_url_from_slug(slug)
 
 
 def _normalize_dashboard_url(value: str) -> str:
-    raw = str(value or "").strip()
-    if not raw:
-        return ""
-    if not re.match(r"^[a-z][a-z0-9+.-]*://", raw, flags=re.IGNORECASE):
-        raw = f"https://{raw.lstrip('/')}"
-
-    parsed = urllib.parse.urlparse(raw)
-    scheme = str(parsed.scheme or "").lower()
-    if scheme not in {"http", "https"}:
-        return ""
-
-    host = str(parsed.netloc or "").strip()
-    if not host:
-        return ""
-
-    path = str(parsed.path or "/")
-    if not path.startswith("/"):
-        path = f"/{path}"
-    if not path.endswith("/") and not parsed.query:
-        path = f"{path}/"
-
-    return urllib.parse.urlunparse((scheme, host, path, "", parsed.query, ""))
+    return _shared_normalize_dashboard_url(value)
 
 
 def _dashboard_url_from_pages_api(repo: str) -> Optional[str]:
@@ -1281,36 +1229,15 @@ def _prompt_use_garmin_activity_links(default_enabled: bool) -> bool:
     return choice == "yes"
 
 
-def _prompt_profile_url_if_missing(source: str) -> str:
-    normalized_source = str(source or "").strip().lower()
-    if normalized_source == "garmin":
-        example = "https://connect.garmin.com/modern/profile/<id>"
-        normalize = _normalize_garmin_profile_url
-        provider_name = "Garmin"
-    else:
-        example = "https://www.strava.com/athletes/<id>"
-        normalize = _normalize_strava_profile_url
-        provider_name = "Strava"
-
-    print(
-        f"{provider_name} profile URL could not be auto-detected.\n"
-        f"Optional: paste your {provider_name} profile URL (example: {example})."
-    )
-    while True:
-        response = input("Profile URL (leave blank to skip): ").strip()
-        if not response:
-            return ""
-        try:
-            return normalize(response)
-        except ValueError as exc:
-            print(str(exc))
-
-
 def _resolve_strava_profile_url(
     args: argparse.Namespace,
     interactive: bool,
     repo: str,
     tokens: Optional[dict] = None,
+    *,
+    enabled_override: Optional[bool] = None,
+    prefilled_url: str = "",
+    prompt_if_missing: bool = True,
 ) -> str:
     explicit = getattr(args, "strava_profile_url", None)
     if explicit is not None:
@@ -1327,14 +1254,26 @@ def _resolve_strava_profile_url(
     except ValueError:
         existing_value = ""
 
-    candidate = detected or existing_value
+    try:
+        prefilled_value = _normalize_strava_profile_url(prefilled_url)
+    except ValueError:
+        prefilled_value = ""
+
+    candidate = detected or prefilled_value or existing_value
+    if enabled_override is not None:
+        if not enabled_override:
+            return ""
+        if candidate:
+            return candidate
+        return ""
+
     if interactive:
         enabled = _prompt_use_strava_profile_link(default_enabled=bool(candidate))
         if not enabled:
             return ""
         if candidate:
             return candidate
-        return _prompt_profile_url_if_missing("strava")
+        return ""
 
     return candidate
 
@@ -1347,6 +1286,9 @@ def _resolve_garmin_profile_url(
     token_store_b64: str,
     email: str,
     password: str,
+    enabled_override: Optional[bool] = None,
+    prefilled_url: str = "",
+    prompt_if_missing: bool = True,
 ) -> str:
     explicit = getattr(args, "garmin_profile_url", None)
     if explicit is not None:
@@ -1369,16 +1311,86 @@ def _resolve_garmin_profile_url(
     except ValueError:
         existing_value = ""
 
-    candidate = detected or existing_value
+    try:
+        prefilled_value = _normalize_garmin_profile_url(prefilled_url)
+    except ValueError:
+        prefilled_value = ""
+
+    candidate = detected or prefilled_value or existing_value
+    if enabled_override is not None:
+        if not enabled_override:
+            return ""
+        if candidate:
+            return candidate
+        return ""
+
     if interactive:
         enabled = _prompt_use_garmin_profile_link(default_enabled=bool(candidate))
         if not enabled:
             return ""
         if candidate:
             return candidate
-        return _prompt_profile_url_if_missing("garmin")
+        return ""
 
     return candidate
+
+
+def _resolve_strava_profile_link_preference(
+    args: argparse.Namespace,
+    interactive: bool,
+    repo: str,
+) -> Tuple[Optional[bool], str]:
+    explicit = getattr(args, "strava_profile_url", None)
+    if explicit is not None:
+        explicit_text = str(explicit).strip()
+        if not explicit_text:
+            return False, ""
+        return True, _normalize_strava_profile_url(explicit_text)
+
+    existing_raw = _get_variable("DASHBOARD_STRAVA_PROFILE_URL", repo)
+    try:
+        existing_value = _normalize_strava_profile_url(existing_raw)
+    except ValueError:
+        existing_value = ""
+
+    if not interactive:
+        return None, existing_value
+
+    enabled = _prompt_use_strava_profile_link(default_enabled=bool(existing_value))
+    if not enabled:
+        return False, ""
+    if existing_value:
+        return True, existing_value
+    return True, ""
+
+
+def _resolve_garmin_profile_link_preference(
+    args: argparse.Namespace,
+    interactive: bool,
+    repo: str,
+) -> Tuple[Optional[bool], str]:
+    explicit = getattr(args, "garmin_profile_url", None)
+    if explicit is not None:
+        explicit_text = str(explicit).strip()
+        if not explicit_text:
+            return False, ""
+        return True, _normalize_garmin_profile_url(explicit_text)
+
+    existing_raw = _get_variable("DASHBOARD_GARMIN_PROFILE_URL", repo)
+    try:
+        existing_value = _normalize_garmin_profile_url(existing_raw)
+    except ValueError:
+        existing_value = ""
+
+    if not interactive:
+        return None, existing_value
+
+    enabled = _prompt_use_garmin_profile_link(default_enabled=bool(existing_value))
+    if not enabled:
+        return False, ""
+    if existing_value:
+        return True, existing_value
+    return True, ""
 
 
 def _resolve_strava_activity_links(
@@ -1961,48 +1973,101 @@ def _find_latest_workflow_run(
     workflow: str,
     event: str,
     not_before: datetime,
-    poll_attempts: int = 12,
+    poll_attempts: int = 45,
     sleep_seconds: int = 2,
     progress_label: Optional[str] = None,
 ) -> Tuple[Optional[int], Optional[str]]:
+    time_skew_grace = timedelta(minutes=2)
+    earliest_allowed = not_before - time_skew_grace
+
+    def _pick_run(runs: object) -> Tuple[Optional[int], Optional[str]]:
+        if not isinstance(runs, list):
+            return None, None
+        primary: list[tuple[datetime, int, Optional[str]]] = []
+        fallback: list[tuple[datetime, int, Optional[str]]] = []
+        for run in runs:
+            if not isinstance(run, dict):
+                continue
+            created_at = _parse_iso8601_utc(str(run.get("createdAt", "")))
+            run_id = run.get("databaseId")
+            run_url = run.get("url")
+            if created_at is None or not isinstance(run_id, int):
+                continue
+            if created_at >= not_before:
+                primary.append((created_at, run_id, str(run_url) if run_url else None))
+            elif created_at >= earliest_allowed:
+                fallback.append((created_at, run_id, str(run_url) if run_url else None))
+        if primary:
+            primary.sort(key=lambda item: item[0], reverse=True)
+            _, run_id, run_url = primary[0]
+            return run_id, run_url
+        if fallback:
+            fallback.sort(key=lambda item: item[0], reverse=True)
+            _, run_id, run_url = fallback[0]
+            return run_id, run_url
+        return None, None
+
     if progress_label:
         timeout_seconds = poll_attempts * sleep_seconds
         print(f"\nWaiting for {progress_label} (up to {timeout_seconds}s)...")
     for attempt in range(1, poll_attempts + 1):
-        result = _run(
-            [
-                "gh",
-                "run",
-                "list",
-                "--repo",
-                repo,
-                "--workflow",
-                workflow,
-                "--event",
-                event,
-                "--limit",
-                "10",
-                "--json",
-                "databaseId,url,createdAt",
-            ],
-            check=False,
-        )
+        fields = "databaseId,url,createdAt"
+        list_cmd = [
+            "gh",
+            "run",
+            "list",
+            "--repo",
+            repo,
+            "--workflow",
+            workflow,
+            "--limit",
+            "30",
+            "--json",
+            fields,
+        ]
+        if event:
+            list_cmd.extend(["--event", event])
+        result = _run(list_cmd, check=False)
         if result.returncode == 0:
             try:
                 runs = json.loads(result.stdout or "[]")
             except json.JSONDecodeError:
                 runs = []
-            for run in runs:
-                created_at = _parse_iso8601_utc(str(run.get("createdAt", "")))
-                if created_at is None:
-                    continue
-                if created_at >= not_before:
-                    run_id = run.get("databaseId")
-                    run_url = run.get("url")
-                    if isinstance(run_id, int):
-                        if progress_label:
-                            print(f"Detected {progress_label}.")
-                        return run_id, str(run_url) if run_url else None
+            run_id, run_url = _pick_run(runs)
+            if run_id is not None:
+                if progress_label:
+                    print(f"Detected {progress_label}.")
+                return run_id, run_url
+
+        # Some environments report delayed/mismatched event classification for newly dispatched runs.
+        # Fall back to scanning the same workflow without event filtering before giving up this poll.
+        if event:
+            fallback_result = _run(
+                [
+                    "gh",
+                    "run",
+                    "list",
+                    "--repo",
+                    repo,
+                    "--workflow",
+                    workflow,
+                    "--limit",
+                    "30",
+                    "--json",
+                    fields,
+                ],
+                check=False,
+            )
+            if fallback_result.returncode == 0:
+                try:
+                    fallback_runs = json.loads(fallback_result.stdout or "[]")
+                except json.JSONDecodeError:
+                    fallback_runs = []
+                run_id, run_url = _pick_run(fallback_runs)
+                if run_id is not None:
+                    if progress_label:
+                        print(f"Detected {progress_label}.")
+                    return run_id, run_url
         if progress_label and (attempt == 1 or attempt % 5 == 0):
             print(f"Still waiting for {progress_label}... ({attempt}/{poll_attempts})")
         time.sleep(sleep_seconds)
@@ -2176,13 +2241,30 @@ def main() -> int:
     distance_unit, elevation_unit = _resolve_units(args, interactive)
     week_start = _resolve_week_start(args, interactive, repo)
 
-    print("\nUpdating repository secrets via gh...")
-    configured_secret_names: list[str] = []
-    athlete_name = ""
     strava_profile_url = ""
     strava_activity_links_enabled = False
     garmin_profile_url = ""
     garmin_activity_links_enabled = False
+    strava_profile_link_enabled_override: Optional[bool] = None
+    strava_profile_url_prefilled = ""
+    garmin_profile_link_enabled_override: Optional[bool] = None
+    garmin_profile_url_prefilled = ""
+    if source == "strava":
+        strava_activity_links_enabled = _resolve_strava_activity_links(args, interactive, repo)
+        (
+            strava_profile_link_enabled_override,
+            strava_profile_url_prefilled,
+        ) = _resolve_strava_profile_link_preference(args, interactive, repo)
+    elif source == "garmin":
+        garmin_activity_links_enabled = _resolve_garmin_activity_links(args, interactive, repo)
+        (
+            garmin_profile_link_enabled_override,
+            garmin_profile_url_prefilled,
+        ) = _resolve_garmin_profile_link_preference(args, interactive, repo)
+
+    print("\nUpdating repository secrets via gh...")
+    configured_secret_names: list[str] = []
+    athlete_name = ""
     strava_rotation_secret_ok: Optional[bool] = None
     strava_rotation_secret_detail = ""
     if source == "strava":
@@ -2231,8 +2313,15 @@ def main() -> int:
         athlete_name = " ".join(
             [str(athlete.get("firstname", "")).strip(), str(athlete.get("lastname", "")).strip()]
         ).strip()
-        strava_profile_url = _resolve_strava_profile_url(args, interactive, repo, tokens=tokens)
-        strava_activity_links_enabled = _resolve_strava_activity_links(args, interactive, repo)
+        strava_profile_url = _resolve_strava_profile_url(
+            args,
+            interactive,
+            repo,
+            tokens=tokens,
+            enabled_override=strava_profile_link_enabled_override,
+            prefilled_url=strava_profile_url_prefilled,
+            prompt_if_missing=False if strava_profile_link_enabled_override is not None else True,
+        )
     elif source == "garmin":
         token_store_b64, garmin_email, garmin_password = _resolve_garmin_auth_values(args, interactive)
         if token_store_b64:
@@ -2249,8 +2338,10 @@ def main() -> int:
             token_store_b64=token_store_b64,
             email=garmin_email,
             password=garmin_password,
+            enabled_override=garmin_profile_link_enabled_override,
+            prefilled_url=garmin_profile_url_prefilled,
+            prompt_if_missing=False if garmin_profile_link_enabled_override is not None else True,
         )
-        garmin_activity_links_enabled = _resolve_garmin_activity_links(args, interactive, repo)
     else:
         raise RuntimeError(f"Unsupported source: {source}")
 

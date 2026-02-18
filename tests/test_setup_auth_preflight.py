@@ -499,16 +499,12 @@ class SetupAuthDispatchTests(unittest.TestCase):
         self.assertEqual(value, "https://www.strava.com/athletes/789")
         prompt_mock.assert_called_once_with(default_enabled=True)
 
-    def test_resolve_strava_profile_url_interactive_prompts_for_manual_url_when_detection_missing(self) -> None:
+    def test_resolve_strava_profile_url_interactive_returns_empty_when_detection_missing(self) -> None:
         args = Namespace(strava_profile_url=None)
         with (
             mock.patch("setup_auth._get_variable", return_value=""),
             mock.patch("setup_auth._detect_strava_profile_url", return_value=""),
             mock.patch("setup_auth._prompt_use_strava_profile_link", return_value=True) as opt_in_mock,
-            mock.patch(
-                "setup_auth._prompt_profile_url_if_missing",
-                return_value="https://www.strava.com/athletes/999",
-            ) as manual_prompt_mock,
         ):
             value = setup_auth._resolve_strava_profile_url(
                 args,
@@ -516,9 +512,8 @@ class SetupAuthDispatchTests(unittest.TestCase):
                 repo="owner/repo",
                 tokens={},
             )
-        self.assertEqual(value, "https://www.strava.com/athletes/999")
+        self.assertEqual(value, "")
         opt_in_mock.assert_called_once_with(default_enabled=False)
-        manual_prompt_mock.assert_called_once_with("strava")
 
     def test_resolve_garmin_profile_url_non_interactive_uses_existing_variable(self) -> None:
         args = Namespace(garmin_profile_url=None)
@@ -557,16 +552,12 @@ class SetupAuthDispatchTests(unittest.TestCase):
         self.assertEqual(value, "https://connect.garmin.com/modern/profile/789")
         prompt_mock.assert_called_once_with(default_enabled=True)
 
-    def test_resolve_garmin_profile_url_interactive_prompts_for_manual_url_when_detection_missing(self) -> None:
+    def test_resolve_garmin_profile_url_interactive_returns_empty_when_detection_missing(self) -> None:
         args = Namespace(garmin_profile_url=None)
         with (
             mock.patch("setup_auth._get_variable", return_value=""),
             mock.patch("setup_auth._detect_garmin_profile_url", return_value=""),
             mock.patch("setup_auth._prompt_use_garmin_profile_link", return_value=True) as opt_in_mock,
-            mock.patch(
-                "setup_auth._prompt_profile_url_if_missing",
-                return_value="https://connect.garmin.com/modern/profile/999",
-            ) as manual_prompt_mock,
         ):
             value = setup_auth._resolve_garmin_profile_url(
                 args,
@@ -576,9 +567,53 @@ class SetupAuthDispatchTests(unittest.TestCase):
                 email="user@example.com",
                 password="secret",
             )
-        self.assertEqual(value, "https://connect.garmin.com/modern/profile/999")
+        self.assertEqual(value, "")
         opt_in_mock.assert_called_once_with(default_enabled=False)
-        manual_prompt_mock.assert_called_once_with("garmin")
+
+    def test_resolve_strava_profile_link_preference_interactive_can_disable(self) -> None:
+        args = Namespace(strava_profile_url=None)
+        with (
+            mock.patch("setup_auth._get_variable", return_value="https://www.strava.com/athletes/321"),
+            mock.patch("setup_auth._prompt_use_strava_profile_link", return_value=False) as prompt_mock,
+        ):
+            enabled, prefilled = setup_auth._resolve_strava_profile_link_preference(
+                args,
+                interactive=True,
+                repo="owner/repo",
+            )
+        self.assertFalse(enabled)
+        self.assertEqual(prefilled, "")
+        prompt_mock.assert_called_once_with(default_enabled=True)
+
+    def test_resolve_strava_profile_link_preference_interactive_enables_without_manual_url(self) -> None:
+        args = Namespace(strava_profile_url=None)
+        with (
+            mock.patch("setup_auth._get_variable", return_value=""),
+            mock.patch("setup_auth._prompt_use_strava_profile_link", return_value=True) as opt_in_mock,
+        ):
+            enabled, prefilled = setup_auth._resolve_strava_profile_link_preference(
+                args,
+                interactive=True,
+                repo="owner/repo",
+            )
+        self.assertTrue(enabled)
+        self.assertEqual(prefilled, "")
+        opt_in_mock.assert_called_once_with(default_enabled=False)
+
+    def test_resolve_garmin_profile_link_preference_interactive_enables_without_manual_url(self) -> None:
+        args = Namespace(garmin_profile_url=None)
+        with (
+            mock.patch("setup_auth._get_variable", return_value=""),
+            mock.patch("setup_auth._prompt_use_garmin_profile_link", return_value=True) as opt_in_mock,
+        ):
+            enabled, prefilled = setup_auth._resolve_garmin_profile_link_preference(
+                args,
+                interactive=True,
+                repo="owner/repo",
+            )
+        self.assertTrue(enabled)
+        self.assertEqual(prefilled, "")
+        opt_in_mock.assert_called_once_with(default_enabled=False)
 
     def test_clear_variable_ignores_not_found(self) -> None:
         with mock.patch(
@@ -724,6 +759,12 @@ class SetupAuthMainFlowTests(unittest.TestCase):
             )
             stack.enter_context(
                 mock.patch(
+                    "setup_auth._resolve_garmin_profile_link_preference",
+                    return_value=(True, ""),
+                )
+            )
+            stack.enter_context(
+                mock.patch(
                     "setup_auth._resolve_garmin_profile_url",
                     return_value="https://connect.garmin.com/modern/profile/abc",
                 )
@@ -797,6 +838,12 @@ class SetupAuthMainFlowTests(unittest.TestCase):
             )
             stack.enter_context(mock.patch("setup_auth._set_secret"))
             stack.enter_context(mock.patch("setup_auth._try_set_strava_secret_update_token", return_value=(True, "ok")))
+            stack.enter_context(
+                mock.patch(
+                    "setup_auth._resolve_strava_profile_link_preference",
+                    return_value=(True, ""),
+                )
+            )
             resolve_profile_mock = stack.enter_context(
                 mock.patch(
                     "setup_auth._resolve_strava_profile_url",
@@ -826,6 +873,9 @@ class SetupAuthMainFlowTests(unittest.TestCase):
             True,
             "owner/repo",
             tokens={"refresh_token": "refresh-token", "athlete": {}},
+            enabled_override=True,
+            prefilled_url="",
+            prompt_if_missing=False,
         )
         resolve_activity_links_mock.assert_called_once_with(
             args,
@@ -890,6 +940,12 @@ class SetupAuthMainFlowTests(unittest.TestCase):
                     return_value=("garmin-token-b64", "user@example.com", "password"),
                 )
             )
+            stack.enter_context(
+                mock.patch(
+                    "setup_auth._resolve_garmin_profile_link_preference",
+                    return_value=(True, ""),
+                )
+            )
             resolve_profile_mock = stack.enter_context(
                 mock.patch(
                     "setup_auth._resolve_garmin_profile_url",
@@ -922,6 +978,9 @@ class SetupAuthMainFlowTests(unittest.TestCase):
             token_store_b64="garmin-token-b64",
             email="user@example.com",
             password="password",
+            enabled_override=True,
+            prefilled_url="",
+            prompt_if_missing=False,
         )
         resolve_activity_links_mock.assert_called_once_with(
             args,
@@ -944,6 +1003,151 @@ class SetupAuthMainFlowTests(unittest.TestCase):
             ),
             set_variable_mock.mock_calls,
         )
+
+    def test_main_strava_resolves_link_preferences_before_oauth_authorize(self) -> None:
+        args = self._default_args()
+        args.client_id = "client-id"
+        args.client_secret = "client-secret"
+        events: list[str] = []
+
+        def _record_strava_activity_links(*_args, **_kwargs) -> bool:
+            events.append("strava_activity_links")
+            return False
+
+        def _record_strava_profile_pref(*_args, **_kwargs) -> tuple[bool, str]:
+            events.append("strava_profile_preference")
+            return False, ""
+
+        def _record_authorize(*_args, **_kwargs) -> str:
+            events.append("strava_authorize")
+            return "auth-code"
+
+        with ExitStack() as stack:
+            stack.enter_context(mock.patch("setup_auth.parse_args", return_value=args))
+            stack.enter_context(mock.patch("setup_auth._bootstrap_env_and_reexec"))
+            stack.enter_context(mock.patch("setup_auth._isatty", return_value=True))
+            stack.enter_context(mock.patch("setup_auth._assert_gh_ready"))
+            stack.enter_context(mock.patch("setup_auth._resolve_repo_slug", return_value="owner/repo"))
+            stack.enter_context(mock.patch("setup_auth._assert_repo_access"))
+            stack.enter_context(mock.patch("setup_auth._assert_actions_secret_access"))
+            stack.enter_context(mock.patch("setup_auth._resolve_custom_pages_domain", return_value=(False, None)))
+            stack.enter_context(mock.patch("setup_auth._existing_dashboard_source", return_value="strava"))
+            stack.enter_context(mock.patch("setup_auth._resolve_source", return_value="strava"))
+            stack.enter_context(mock.patch("setup_auth._prompt_full_backfill_choice", return_value=False))
+            stack.enter_context(mock.patch("setup_auth._resolve_units", return_value=("mi", "ft")))
+            stack.enter_context(mock.patch("setup_auth._resolve_week_start", return_value="sunday"))
+            stack.enter_context(
+                mock.patch(
+                    "setup_auth._resolve_strava_activity_links",
+                    side_effect=_record_strava_activity_links,
+                )
+            )
+            stack.enter_context(
+                mock.patch(
+                    "setup_auth._resolve_strava_profile_link_preference",
+                    side_effect=_record_strava_profile_pref,
+                )
+            )
+            stack.enter_context(
+                mock.patch(
+                    "setup_auth._authorize_and_get_code",
+                    side_effect=_record_authorize,
+                )
+            )
+            stack.enter_context(
+                mock.patch(
+                    "setup_auth._exchange_code_for_tokens",
+                    return_value={"refresh_token": "refresh-token", "athlete": {}},
+                )
+            )
+            stack.enter_context(mock.patch("setup_auth._set_secret"))
+            stack.enter_context(mock.patch("setup_auth._try_set_strava_secret_update_token", return_value=(True, "ok")))
+            stack.enter_context(mock.patch("setup_auth._resolve_strava_profile_url", return_value=""))
+            stack.enter_context(mock.patch("setup_auth._set_variable"))
+            stack.enter_context(mock.patch("setup_auth._clear_variable"))
+            stack.enter_context(mock.patch("setup_auth._try_enable_actions_permissions", return_value=(True, "ok")))
+            stack.enter_context(mock.patch("setup_auth._try_enable_workflows", return_value=(True, "ok")))
+            stack.enter_context(mock.patch("setup_auth._try_configure_pages", return_value=(True, "ok")))
+            stack.enter_context(mock.patch("setup_auth._try_dispatch_sync", return_value=(True, "ok")))
+            stack.enter_context(
+                mock.patch(
+                    "setup_auth._find_latest_workflow_run",
+                    return_value=(123, "https://example.test/run/123"),
+                )
+            )
+            result = setup_auth.main()
+
+        self.assertEqual(result, 0)
+        self.assertLess(events.index("strava_activity_links"), events.index("strava_authorize"))
+        self.assertLess(events.index("strava_profile_preference"), events.index("strava_authorize"))
+
+    def test_main_garmin_resolves_link_preferences_before_auth_values(self) -> None:
+        args = self._default_args()
+        events: list[str] = []
+
+        def _record_garmin_activity_links(*_args, **_kwargs) -> bool:
+            events.append("garmin_activity_links")
+            return True
+
+        def _record_garmin_profile_pref(*_args, **_kwargs) -> tuple[bool, str]:
+            events.append("garmin_profile_preference")
+            return True, ""
+
+        def _record_garmin_auth(*_args, **_kwargs) -> tuple[str, str, str]:
+            events.append("garmin_auth_values")
+            return "garmin-token-b64", "user@example.com", "password"
+
+        with ExitStack() as stack:
+            stack.enter_context(mock.patch("setup_auth.parse_args", return_value=args))
+            stack.enter_context(mock.patch("setup_auth._bootstrap_env_and_reexec"))
+            stack.enter_context(mock.patch("setup_auth._isatty", return_value=True))
+            stack.enter_context(mock.patch("setup_auth._assert_gh_ready"))
+            stack.enter_context(mock.patch("setup_auth._resolve_repo_slug", return_value="owner/repo"))
+            stack.enter_context(mock.patch("setup_auth._assert_repo_access"))
+            stack.enter_context(mock.patch("setup_auth._assert_actions_secret_access"))
+            stack.enter_context(mock.patch("setup_auth._resolve_custom_pages_domain", return_value=(False, None)))
+            stack.enter_context(mock.patch("setup_auth._existing_dashboard_source", return_value="garmin"))
+            stack.enter_context(mock.patch("setup_auth._resolve_source", return_value="garmin"))
+            stack.enter_context(mock.patch("setup_auth._prompt_full_backfill_choice", return_value=False))
+            stack.enter_context(mock.patch("setup_auth._resolve_units", return_value=("mi", "ft")))
+            stack.enter_context(mock.patch("setup_auth._resolve_week_start", return_value="sunday"))
+            stack.enter_context(
+                mock.patch(
+                    "setup_auth._resolve_garmin_activity_links",
+                    side_effect=_record_garmin_activity_links,
+                )
+            )
+            stack.enter_context(
+                mock.patch(
+                    "setup_auth._resolve_garmin_profile_link_preference",
+                    side_effect=_record_garmin_profile_pref,
+                )
+            )
+            stack.enter_context(
+                mock.patch(
+                    "setup_auth._resolve_garmin_auth_values",
+                    side_effect=_record_garmin_auth,
+                )
+            )
+            stack.enter_context(mock.patch("setup_auth._set_secret"))
+            stack.enter_context(mock.patch("setup_auth._resolve_garmin_profile_url", return_value=""))
+            stack.enter_context(mock.patch("setup_auth._set_variable"))
+            stack.enter_context(mock.patch("setup_auth._clear_variable"))
+            stack.enter_context(mock.patch("setup_auth._try_enable_actions_permissions", return_value=(True, "ok")))
+            stack.enter_context(mock.patch("setup_auth._try_enable_workflows", return_value=(True, "ok")))
+            stack.enter_context(mock.patch("setup_auth._try_configure_pages", return_value=(True, "ok")))
+            stack.enter_context(mock.patch("setup_auth._try_dispatch_sync", return_value=(True, "ok")))
+            stack.enter_context(
+                mock.patch(
+                    "setup_auth._find_latest_workflow_run",
+                    return_value=(123, "https://example.test/run/123"),
+                )
+            )
+            result = setup_auth.main()
+
+        self.assertEqual(result, 0)
+        self.assertLess(events.index("garmin_activity_links"), events.index("garmin_auth_values"))
+        self.assertLess(events.index("garmin_profile_preference"), events.index("garmin_auth_values"))
 
     def test_main_applies_custom_pages_domain_when_requested(self) -> None:
         args = self._default_args()
@@ -975,6 +1179,12 @@ class SetupAuthMainFlowTests(unittest.TestCase):
             )
             stack.enter_context(mock.patch("setup_auth._set_secret"))
             stack.enter_context(mock.patch("setup_auth._try_set_strava_secret_update_token", return_value=(True, "ok")))
+            stack.enter_context(
+                mock.patch(
+                    "setup_auth._resolve_strava_profile_link_preference",
+                    return_value=(False, ""),
+                )
+            )
             stack.enter_context(mock.patch("setup_auth._resolve_strava_profile_url", return_value=""))
             stack.enter_context(mock.patch("setup_auth._resolve_strava_activity_links", return_value=False))
             stack.enter_context(mock.patch("setup_auth._set_variable"))
@@ -1028,6 +1238,12 @@ class SetupAuthMainFlowTests(unittest.TestCase):
             )
             stack.enter_context(mock.patch("setup_auth._set_secret"))
             stack.enter_context(mock.patch("setup_auth._try_set_strava_secret_update_token", return_value=(True, "ok")))
+            stack.enter_context(
+                mock.patch(
+                    "setup_auth._resolve_strava_profile_link_preference",
+                    return_value=(False, ""),
+                )
+            )
             stack.enter_context(mock.patch("setup_auth._resolve_strava_profile_url", return_value=""))
             stack.enter_context(mock.patch("setup_auth._resolve_strava_activity_links", return_value=False))
             stack.enter_context(mock.patch("setup_auth._set_variable"))

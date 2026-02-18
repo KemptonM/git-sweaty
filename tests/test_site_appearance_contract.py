@@ -17,7 +17,7 @@ class SiteAppearanceContractTests(unittest.TestCase):
         self.assertIn("Space+Grotesk", self.html)
         self.assertIn("JetBrains+Mono", self.html)
         self.assertIn('font-family: "Space Grotesk", system-ui, sans-serif;', self.html)
-        self.assertIn("background: radial-gradient(circle at top left, #1e293b, var(--bg))", self.html)
+        self.assertIn("background: #1e293b;", self.html)
 
     def test_required_css_variables_exist(self) -> None:
         required_vars = [
@@ -67,7 +67,10 @@ class SiteAppearanceContractTests(unittest.TestCase):
         self.assertNotIn('id="updated"', self.html)
 
         self.assertIn('class="header-link repo-link"', self.html)
-        self.assertIn('class="header-link strava-profile-link"', self.html)
+        self.assertRegex(
+            self.html,
+            r'class="[^"]*header-link[^"]*strava-profile-link[^"]*"',
+        )
         self.assertIn('id="footerPoweredLabel"', self.html)
         self.assertIn(">powered<", self.html)
         self.assertIn("aspain/git-sweaty", self.html)

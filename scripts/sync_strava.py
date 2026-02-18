@@ -666,6 +666,8 @@ def _sync_recent(
             break
         for activity in activities:
             total += 1
+            if total % 10 == 0:
+                print(f"Processing recent activities... {total}")
             ts = _activity_start_ts(activity)
             if ts is not None:
                 oldest_ts = ts if oldest_ts is None else min(oldest_ts, ts)
@@ -679,6 +681,7 @@ def _sync_recent(
             # For weight training activities, fetch detailed data to get description
             activity_type = activity.get("type") or activity.get("sport_type") or ""
             if activity_type == "WeightTraining" and activity_id:
+                print(f"  Fetching description for WeightTraining: {activity.get('name')}")
                 detail = _fetch_activity_detail(str(activity_id), token, limiter)
                 if detail and isinstance(detail, dict):
                     # Merge description from detailed activity
@@ -796,6 +799,8 @@ def sync_strava(dry_run: bool, prune_deleted: bool) -> Dict:
                 break
             for activity in activities:
                 total += 1
+                if total % 10 == 0:
+                    print(f"Backfill progress: {total} activities processed")
                 activity_id = activity.get("id")
                 if activity_id:
                     fetched_ids.add(str(activity_id))
@@ -809,6 +814,7 @@ def sync_strava(dry_run: bool, prune_deleted: bool) -> Dict:
                 # For weight training activities, fetch detailed data to get description
                 activity_type = activity.get("type") or activity.get("sport_type") or ""
                 if activity_type == "WeightTraining" and activity_id:
+                    print(f"  Fetching description for WeightTraining: {activity.get('name')}")
                     detail = _fetch_activity_detail(str(activity_id), token, limiter)
                     if detail and isinstance(detail, dict):
                         # Merge description from detailed activity

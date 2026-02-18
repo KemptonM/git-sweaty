@@ -1922,5 +1922,18 @@
     "start_date_local": "2026-02-16T16:28:41Z",
     "type": "Run",
     "year": 2026
+  },
+  {
+    "date": "2026-02-17",
+    "distance": 3534.6,
+    "elevation_gain": 63.6,
+    "id": "17433455657",
+    "moving_time": 1782.0,
+    "name": "Art Jog",
+    "raw_activity_type": "Run",
+    "raw_type": "Run",
+    "start_date_local": "2026-02-17T17:34:07Z",
+    "type": "Run",
+    "year": 2026
   }
 ]

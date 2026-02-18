@@ -1331,6 +1331,15 @@
       "type": "Run",
       "url": "https://www.strava.com/activities/17421827255",
       "year": 2026
+    },
+    {
+      "date": "2026-02-17",
+      "hour": 17,
+      "name": "Art Jog",
+      "subtype": "Run",
+      "type": "Run",
+      "url": "https://www.strava.com/activities/17433455657",
+      "year": 2026
     }
   ],
   "aggregates": {
@@ -2599,6 +2608,15 @@
           "distance": 1910.5,
           "elevation_gain": 27.2,
           "moving_time": 1015.0
+        },
+        "2026-02-17": {
+          "activity_ids": [
+            "17433455657"
+          ],
+          "count": 1,
+          "distance": 3534.6,
+          "elevation_gain": 63.6,
+          "moving_time": 1782.0
         }
       },
       "Walk": {
@@ -2661,7 +2679,7 @@
       }
     }
   },
-  "generated_at": "2026-02-17T15:46:31.899476+00:00",
+  "generated_at": "2026-02-18T21:34:23.299015+00:00",
   "other_bucket": "OtherSports",
   "profile_url": "https://www.strava.com/athletes/134713213",
   "repo": "KemptonM/git-sweaty",

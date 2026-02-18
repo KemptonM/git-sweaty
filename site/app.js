@@ -2585,6 +2585,9 @@ function buildSummary(
     distance: 0,
     moving_time: 0,
     elevation: 0,
+    weight_volume_lbs: 0,
+    weight_sets: 0,
+    weight_reps: 0,
   };
   const typeTotals = {};
   const selectedTypeSet = new Set(types);
@@ -2596,6 +2599,16 @@ function buildSummary(
     : [];
   const typeCardSet = new Set(visibleTypeCardsList);
   const activeDays = new Set();
+
+  // Aggregate weight training totals from year_totals if available
+  if (payload.year_totals) {
+    Object.entries(payload.year_totals || {}).forEach(([year, yearTotals]) => {
+      if (!years.includes(Number(year))) return;
+      totals.weight_volume_lbs += yearTotals.weight_volume_lbs || 0;
+      totals.weight_sets += yearTotals.weight_sets || 0;
+      totals.weight_reps += yearTotals.weight_reps || 0;
+    });
+  }
 
   Object.entries(payload.aggregates || {}).forEach(([year, yearData]) => {
     if (!years.includes(Number(year))) return;
@@ -2658,6 +2671,18 @@ function buildSummary(
         : STAT_PLACEHOLDER,
       metricKey: "elevation_gain",
       filterable: totals.elevation > 0,
+    },
+    {
+      title: "Weight Volume",
+      value: totals.weight_volume_lbs > 0
+        ? `${Math.round(totals.weight_volume_lbs).toLocaleString()} lbs`
+        : STAT_PLACEHOLDER,
+    },
+    {
+      title: "Sets + Reps",
+      value: (totals.weight_sets > 0 || totals.weight_reps > 0)
+        ? `${totals.weight_sets.toLocaleString()} + ${totals.weight_reps.toLocaleString()}`
+        : STAT_PLACEHOLDER,
     },
   );
 

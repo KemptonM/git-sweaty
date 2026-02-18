@@ -18,6 +18,11 @@ def aggregate():
     items = read_json(IN_PATH) if os.path.exists(IN_PATH) else []
 
     data = defaultdict(lambda: defaultdict(lambda: defaultdict(dict)))
+    year_totals = defaultdict(lambda: {
+        "weight_volume_lbs": 0.0,
+        "weight_sets": 0,
+        "weight_reps": 0,
+    })
 
     for item in items:
         activity_type = item.get("type")
@@ -37,14 +42,25 @@ def aggregate():
                 "distance": 0.0,
                 "moving_time": 0.0,
                 "elevation_gain": 0.0,
+                "weight_volume_lbs": 0.0,
+                "weight_sets": 0,
+                "weight_reps": 0,
                 "activity_ids": [],
             }
         entry["count"] += 1
         entry["distance"] += float(item.get("distance", 0.0))
         entry["moving_time"] += float(item.get("moving_time", 0.0))
         entry["elevation_gain"] += float(item.get("elevation_gain", 0.0))
+        entry["weight_volume_lbs"] += float(item.get("weight_volume_lbs", 0.0))
+        entry["weight_sets"] += int(item.get("weight_sets", 0))
+        entry["weight_reps"] += int(item.get("weight_reps", 0))
         entry["activity_ids"].append(item.get("id"))
         data[year][activity_type][date] = entry
+        
+        # Accumulate year-level weight training totals
+        year_totals[year]["weight_volume_lbs"] += float(item.get("weight_volume_lbs", 0.0))
+        year_totals[year]["weight_sets"] += int(item.get("weight_sets", 0))
+        year_totals[year]["weight_reps"] += int(item.get("weight_reps", 0))
 
     for year_data in data.values():
         for type_data in year_data.values():
@@ -54,6 +70,7 @@ def aggregate():
     output = {
         "generated_at": utc_now().isoformat(),
         "years": data,
+        "year_totals": dict(year_totals),
     }
     return output
 

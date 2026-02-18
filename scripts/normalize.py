@@ -3,6 +3,7 @@ import os
 from typing import Any, Dict, List
 
 from activity_types import canonicalize_activity_type, featured_types_from_config, normalize_activity_type
+from parse_weight_training import parse_weight_training_description
 from provider_fields import (
     coalesce as _shared_coalesce,
     get_nested as _shared_get_nested,
@@ -83,6 +84,10 @@ def _normalize_activity(activity: Dict, type_aliases: Dict[str, str], source: st
         activity.get("totalElevationGain"),
     )
     activity_name = str(_coalesce(activity.get("name"), activity.get("activityName"), "") or "").strip()
+    description = str(_coalesce(activity.get("description"), "") or "").strip()
+
+    # Parse weight training metrics from description
+    weight_metrics = parse_weight_training_description(description)
 
     normalized = {
         "id": str(activity_id),
@@ -95,6 +100,9 @@ def _normalize_activity(activity: Dict, type_aliases: Dict[str, str], source: st
         "distance": _safe_float(distance),
         "moving_time": _safe_float(moving_time),
         "elevation_gain": _safe_float(elevation_gain),
+        "weight_volume_lbs": weight_metrics["total_volume_lbs"],
+        "weight_sets": weight_metrics["total_sets"],
+        "weight_reps": weight_metrics["total_reps"],
     }
     if activity_name:
         normalized["name"] = activity_name
@@ -188,6 +196,13 @@ def normalize() -> List[Dict]:
             other_bucket=other_bucket,
             group_aliases=group_aliases,
         )
+        # Ensure weight training metrics are present (migration for existing activities)
+        if "weight_volume_lbs" not in item:
+            item["weight_volume_lbs"] = 0.0
+        if "weight_sets" not in item:
+            item["weight_sets"] = 0
+        if "weight_reps" not in item:
+            item["weight_reps"] = 0
     if exclude_types:
         items = [item for item in items if item.get("type") not in exclude_types]
     if not include_all_types:

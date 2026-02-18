@@ -407,6 +407,33 @@ def _fetch_page(
     )
 
 
+def _fetch_activity_detail(
+    activity_id: str,
+    token: str,
+    limiter: Optional[RateLimiter],
+) -> Optional[Dict]:
+    """Fetch detailed activity data (includes description).
+    
+    Args:
+        activity_id: The Strava activity ID
+        token: Access token for Strava API
+        limiter: Rate limiter instance
+    
+    Returns:
+        Detailed activity dict or None if fetch fails
+    """
+    try:
+        return _request_json_with_retry(
+            "GET",
+            f"https://www.strava.com/api/v3/activities/{activity_id}",
+            limiter=limiter,
+            request_kind="read",
+            headers={"Authorization": f"Bearer {token}"},
+        )
+    except Exception:
+        return None
+
+
 def _load_existing_activity_ids() -> set:
     path = os.path.join("data", "activities_normalized.json")
     if not os.path.exists(path):
@@ -648,6 +675,15 @@ def _sync_recent(
                 activity_ids.add(str(activity_id))
             if dry_run:
                 continue
+            
+            # For weight training activities, fetch detailed data to get description
+            activity_type = activity.get("type") or activity.get("sport_type") or ""
+            if activity_type == "WeightTraining" and activity_id:
+                detail = _fetch_activity_detail(str(activity_id), token, limiter)
+                if detail and isinstance(detail, dict):
+                    # Merge description from detailed activity
+                    activity["description"] = detail.get("description", activity.get("description", ""))
+            
             if _write_activity(activity):
                 new_or_updated += 1
         page += 1
@@ -769,6 +805,15 @@ def sync_strava(dry_run: bool, prune_deleted: bool) -> Dict:
                     max_ts = ts if max_ts is None else max(max_ts, ts)
                 if dry_run:
                     continue
+                
+                # For weight training activities, fetch detailed data to get description
+                activity_type = activity.get("type") or activity.get("sport_type") or ""
+                if activity_type == "WeightTraining" and activity_id:
+                    detail = _fetch_activity_detail(str(activity_id), token, limiter)
+                    if detail and isinstance(detail, dict):
+                        # Merge description from detailed activity
+                        activity["description"] = detail.get("description", activity.get("description", ""))
+                
                 if _write_activity(activity):
                     new_or_updated += 1
             page += 1

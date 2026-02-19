@@ -2382,5 +2382,21 @@
     "weight_sets": 0,
     "weight_volume_lbs": 0.0,
     "year": 2026
+  },
+  {
+    "date": "2026-02-18",
+    "distance": 1624.6,
+    "elevation_gain": 14.2,
+    "id": "17446522722",
+    "moving_time": 610.0,
+    "name": "Night Mile",
+    "raw_activity_type": "Run",
+    "raw_type": "Run",
+    "start_date_local": "2026-02-18T23:16:23Z",
+    "type": "Run",
+    "weight_reps": 0,
+    "weight_sets": 0,
+    "weight_volume_lbs": 0.0,
+    "year": 2026
   }
 ]

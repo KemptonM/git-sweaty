@@ -1340,6 +1340,15 @@
       "type": "Run",
       "url": "https://www.strava.com/activities/17433455657",
       "year": 2026
+    },
+    {
+      "date": "2026-02-18",
+      "hour": 23,
+      "name": "Night Mile",
+      "subtype": "Run",
+      "type": "Run",
+      "url": "https://www.strava.com/activities/17446522722",
+      "year": 2026
     }
   ],
   "aggregates": {
@@ -1945,10 +1954,7 @@
           "count": 1,
           "distance": 1205.1,
           "elevation_gain": 6.2,
-          "moving_time": 310.0,
-          "weight_reps": 0,
-          "weight_sets": 0,
-          "weight_volume_lbs": 0.0
+          "moving_time": 310.0
         },
         "2025-12-24": {
           "activity_ids": [
@@ -1957,10 +1963,7 @@
           "count": 1,
           "distance": 1930.9,
           "elevation_gain": 38.4,
-          "moving_time": 419.0,
-          "weight_reps": 0,
-          "weight_sets": 0,
-          "weight_volume_lbs": 0.0
+          "moving_time": 419.0
         },
         "2025-12-25": {
           "activity_ids": [
@@ -1969,10 +1972,7 @@
           "count": 1,
           "distance": 7226.8,
           "elevation_gain": 89.2,
-          "moving_time": 2365.0,
-          "weight_reps": 0,
-          "weight_sets": 0,
-          "weight_volume_lbs": 0.0
+          "moving_time": 2365.0
         },
         "2025-12-27": {
           "activity_ids": [
@@ -1983,10 +1983,7 @@
           "count": 3,
           "distance": 23960.1,
           "elevation_gain": 205.4,
-          "moving_time": 7836.0,
-          "weight_reps": 0,
-          "weight_sets": 0,
-          "weight_volume_lbs": 0.0
+          "moving_time": 7836.0
         },
         "2025-12-28": {
           "activity_ids": [
@@ -1995,10 +1992,7 @@
           "count": 1,
           "distance": 4967.9,
           "elevation_gain": 16.6,
-          "moving_time": 1728.0,
-          "weight_reps": 0,
-          "weight_sets": 0,
-          "weight_volume_lbs": 0.0
+          "moving_time": 1728.0
         },
         "2025-12-29": {
           "activity_ids": [
@@ -2008,10 +2002,7 @@
           "count": 2,
           "distance": 4867.3,
           "elevation_gain": 14.6,
-          "moving_time": 1426.0,
-          "weight_reps": 0,
-          "weight_sets": 0,
-          "weight_volume_lbs": 0.0
+          "moving_time": 1426.0
         }
       },
       "Run": {
@@ -2022,10 +2013,7 @@
           "count": 1,
           "distance": 1622.6,
           "elevation_gain": 20.0,
-          "moving_time": 609.0,
-          "weight_reps": 0,
-          "weight_sets": 0,
-          "weight_volume_lbs": 0.0
+          "moving_time": 609.0
         },
         "2025-04-24": {
           "activity_ids": [
@@ -2034,10 +2022,7 @@
           "count": 1,
           "distance": 2256.0,
           "elevation_gain": 34.0,
-          "moving_time": 1080.0,
-          "weight_reps": 0,
-          "weight_sets": 0,
-          "weight_volume_lbs": 0.0
+          "moving_time": 1080.0
         },
         "2025-05-01": {
           "activity_ids": [
@@ -2046,10 +2031,7 @@
           "count": 1,
           "distance": 3983.6,
           "elevation_gain": 0.0,
-          "moving_time": 1954.0,
-          "weight_reps": 0,
-          "weight_sets": 0,
-          "weight_volume_lbs": 0.0
+          "moving_time": 1954.0
         },
         "2025-05-02": {
           "activity_ids": [
@@ -2058,10 +2040,7 @@
           "count": 1,
           "distance": 3282.5,
           "elevation_gain": 45.8,
-          "moving_time": 1556.0,
-          "weight_reps": 0,
-          "weight_sets": 0,
-          "weight_volume_lbs": 0.0
+          "moving_time": 1556.0
         },
         "2025-05-04": {
           "activity_ids": [
@@ -2070,10 +2049,7 @@
           "count": 1,
           "distance": 1308.0,
           "elevation_gain": 0.0,
-          "moving_time": 593.0,
-          "weight_reps": 0,
-          "weight_sets": 0,
-          "weight_volume_lbs": 0.0
+          "moving_time": 593.0
         },
         "2025-05-05": {
           "activity_ids": [
@@ -2082,10 +2058,7 @@
           "count": 1,
           "distance": 4708.5,
           "elevation_gain": 52.8,
-          "moving_time": 2447.0,
-          "weight_reps": 0,
-          "weight_sets": 0,
-          "weight_volume_lbs": 0.0
+          "moving_time": 2447.0
         },
         "2025-05-15": {
           "activity_ids": [
@@ -2094,10 +2067,7 @@
           "count": 1,
           "distance": 1621.8,
           "elevation_gain": 18.8,
-          "moving_time": 514.0,
-          "weight_reps": 0,
-          "weight_sets": 0,
-          "weight_volume_lbs": 0.0
+          "moving_time": 514.0
         },
         "2025-09-03": {
           "activity_ids": [
@@ -2106,10 +2076,7 @@
           "count": 1,
           "distance": 5662.8,
           "elevation_gain": 50.2,
-          "moving_time": 2955.0,
-          "weight_reps": 0,
-          "weight_sets": 0,
-          "weight_volume_lbs": 0.0
+          "moving_time": 2955.0
         },
         "2025-10-12": {
           "activity_ids": [
@@ -2118,10 +2085,7 @@
           "count": 1,
           "distance": 1630.2,
           "elevation_gain": 8.2,
-          "moving_time": 606.0,
-          "weight_reps": 0,
-          "weight_sets": 0,
-          "weight_volume_lbs": 0.0
+          "moving_time": 606.0
         },
         "2025-10-15": {
           "activity_ids": [
@@ -2130,10 +2094,7 @@
           "count": 1,
           "distance": 1200.9,
           "elevation_gain": 0.0,
-          "moving_time": 673.0,
-          "weight_reps": 0,
-          "weight_sets": 0,
-          "weight_volume_lbs": 0.0
+          "moving_time": 673.0
         }
       },
       "StairStepper": {
@@ -2144,10 +2105,7 @@
           "count": 1,
           "distance": 0.0,
           "elevation_gain": 0.0,
-          "moving_time": 477.0,
-          "weight_reps": 0,
-          "weight_sets": 0,
-          "weight_volume_lbs": 0.0
+          "moving_time": 477.0
         }
       },
       "Walk": {
@@ -2158,10 +2116,7 @@
           "count": 1,
           "distance": 2337.8,
           "elevation_gain": 69.8,
-          "moving_time": 1883.0,
-          "weight_reps": 0,
-          "weight_sets": 0,
-          "weight_volume_lbs": 0.0
+          "moving_time": 1883.0
         },
         "2025-04-06": {
           "activity_ids": [
@@ -2170,10 +2125,7 @@
           "count": 1,
           "distance": 2693.3,
           "elevation_gain": 79.6,
-          "moving_time": 2044.0,
-          "weight_reps": 0,
-          "weight_sets": 0,
-          "weight_volume_lbs": 0.0
+          "moving_time": 2044.0
         },
         "2025-04-08": {
           "activity_ids": [
@@ -2182,10 +2134,7 @@
           "count": 1,
           "distance": 4260.7,
           "elevation_gain": 50.2,
-          "moving_time": 3392.0,
-          "weight_reps": 0,
-          "weight_sets": 0,
-          "weight_volume_lbs": 0.0
+          "moving_time": 3392.0
         },
         "2025-04-14": {
           "activity_ids": [
@@ -2194,10 +2143,7 @@
           "count": 1,
           "distance": 2079.8,
           "elevation_gain": 46.4,
-          "moving_time": 1632.0,
-          "weight_reps": 0,
-          "weight_sets": 0,
-          "weight_volume_lbs": 0.0
+          "moving_time": 1632.0
         },
         "2025-04-20": {
           "activity_ids": [
@@ -2206,10 +2152,7 @@
           "count": 1,
           "distance": 1610.8,
           "elevation_gain": 43.6,
-          "moving_time": 1060.0,
-          "weight_reps": 0,
-          "weight_sets": 0,
-          "weight_volume_lbs": 0.0
+          "moving_time": 1060.0
         },
         "2025-04-28": {
           "activity_ids": [
@@ -2218,10 +2161,7 @@
           "count": 1,
           "distance": 3803.3,
           "elevation_gain": 91.8,
-          "moving_time": 2827.0,
-          "weight_reps": 0,
-          "weight_sets": 0,
-          "weight_volume_lbs": 0.0
+          "moving_time": 2827.0
         },
         "2025-05-07": {
           "activity_ids": [
@@ -2230,10 +2170,7 @@
           "count": 1,
           "distance": 2262.5,
           "elevation_gain": 52.8,
-          "moving_time": 1771.0,
-          "weight_reps": 0,
-          "weight_sets": 0,
-          "weight_volume_lbs": 0.0
+          "moving_time": 1771.0
         },
         "2025-05-08": {
           "activity_ids": [
@@ -2242,10 +2179,7 @@
           "count": 1,
           "distance": 2787.1,
           "elevation_gain": 41.2,
-          "moving_time": 1854.0,
-          "weight_reps": 0,
-          "weight_sets": 0,
-          "weight_volume_lbs": 0.0
+          "moving_time": 1854.0
         },
         "2025-06-03": {
           "activity_ids": [
@@ -2254,10 +2188,7 @@
           "count": 1,
           "distance": 2098.9,
           "elevation_gain": 58.4,
-          "moving_time": 1650.0,
-          "weight_reps": 0,
-          "weight_sets": 0,
-          "weight_volume_lbs": 0.0
+          "moving_time": 1650.0
         },
         "2025-08-07": {
           "activity_ids": [
@@ -2266,10 +2197,7 @@
           "count": 1,
           "distance": 1087.2,
           "elevation_gain": 0.0,
-          "moving_time": 1136.0,
-          "weight_reps": 0,
-          "weight_sets": 0,
-          "weight_volume_lbs": 0.0
+          "moving_time": 1136.0
         },
         "2025-08-18": {
           "activity_ids": [
@@ -2278,10 +2206,7 @@
           "count": 1,
           "distance": 4327.8,
           "elevation_gain": 21.6,
-          "moving_time": 3241.0,
-          "weight_reps": 0,
-          "weight_sets": 0,
-          "weight_volume_lbs": 0.0
+          "moving_time": 3241.0
         },
         "2025-09-22": {
           "activity_ids": [
@@ -2290,10 +2215,7 @@
           "count": 1,
           "distance": 2263.4,
           "elevation_gain": 32.4,
-          "moving_time": 1650.0,
-          "weight_reps": 0,
-          "weight_sets": 0,
-          "weight_volume_lbs": 0.0
+          "moving_time": 1650.0
         },
         "2025-10-06": {
           "activity_ids": [
@@ -2302,10 +2224,7 @@
           "count": 1,
           "distance": 171.6,
           "elevation_gain": 0.0,
-          "moving_time": 269.0,
-          "weight_reps": 0,
-          "weight_sets": 0,
-          "weight_volume_lbs": 0.0
+          "moving_time": 269.0
         },
         "2025-12-26": {
           "activity_ids": [
@@ -2314,10 +2233,7 @@
           "count": 1,
           "distance": 7877.9,
           "elevation_gain": 44.2,
-          "moving_time": 7201.0,
-          "weight_reps": 0,
-          "weight_sets": 0,
-          "weight_volume_lbs": 0.0
+          "moving_time": 7201.0
         }
       },
       "WeightTraining": {
@@ -2918,10 +2834,7 @@
           "count": 1,
           "distance": 0.0,
           "elevation_gain": 0.0,
-          "moving_time": 186.0,
-          "weight_reps": 0,
-          "weight_sets": 0,
-          "weight_volume_lbs": 0.0
+          "moving_time": 186.0
         },
         "2025-12-25": {
           "activity_ids": [
@@ -2930,10 +2843,7 @@
           "count": 1,
           "distance": 0.0,
           "elevation_gain": 0.0,
-          "moving_time": 4108.0,
-          "weight_reps": 0,
-          "weight_sets": 0,
-          "weight_volume_lbs": 0.0
+          "moving_time": 4108.0
         },
         "2025-12-29": {
           "activity_ids": [
@@ -2942,10 +2852,7 @@
           "count": 1,
           "distance": 0.0,
           "elevation_gain": 0.0,
-          "moving_time": 3428.0,
-          "weight_reps": 0,
-          "weight_sets": 0,
-          "weight_volume_lbs": 0.0
+          "moving_time": 3428.0
         }
       }
     },
@@ -2958,10 +2865,7 @@
           "count": 1,
           "distance": 1626.9,
           "elevation_gain": 0.0,
-          "moving_time": 775.0,
-          "weight_reps": 0,
-          "weight_sets": 0,
-          "weight_volume_lbs": 0.0
+          "moving_time": 775.0
         },
         "2026-02-06": {
           "activity_ids": [
@@ -2970,10 +2874,7 @@
           "count": 1,
           "distance": 1596.0,
           "elevation_gain": 9.4,
-          "moving_time": 777.0,
-          "weight_reps": 0,
-          "weight_sets": 0,
-          "weight_volume_lbs": 0.0
+          "moving_time": 777.0
         },
         "2026-02-08": {
           "activity_ids": [
@@ -2982,10 +2883,7 @@
           "count": 1,
           "distance": 1782.9,
           "elevation_gain": 10.2,
-          "moving_time": 895.0,
-          "weight_reps": 0,
-          "weight_sets": 0,
-          "weight_volume_lbs": 0.0
+          "moving_time": 895.0
         },
         "2026-02-10": {
           "activity_ids": [
@@ -2994,10 +2892,7 @@
           "count": 1,
           "distance": 702.3,
           "elevation_gain": 0.0,
-          "moving_time": 479.0,
-          "weight_reps": 0,
-          "weight_sets": 0,
-          "weight_volume_lbs": 0.0
+          "moving_time": 479.0
         },
         "2026-02-12": {
           "activity_ids": [
@@ -3006,10 +2901,7 @@
           "count": 1,
           "distance": 1800.3,
           "elevation_gain": 15.8,
-          "moving_time": 922.0,
-          "weight_reps": 0,
-          "weight_sets": 0,
-          "weight_volume_lbs": 0.0
+          "moving_time": 922.0
         },
         "2026-02-16": {
           "activity_ids": [
@@ -3018,10 +2910,7 @@
           "count": 1,
           "distance": 1910.5,
           "elevation_gain": 27.2,
-          "moving_time": 1015.0,
-          "weight_reps": 0,
-          "weight_sets": 0,
-          "weight_volume_lbs": 0.0
+          "moving_time": 1015.0
         },
         "2026-02-17": {
           "activity_ids": [
@@ -3030,10 +2919,16 @@
           "count": 1,
           "distance": 3534.6,
           "elevation_gain": 63.6,
-          "moving_time": 1782.0,
-          "weight_reps": 0,
-          "weight_sets": 0,
-          "weight_volume_lbs": 0.0
+          "moving_time": 1782.0
+        },
+        "2026-02-18": {
+          "activity_ids": [
+            "17446522722"
+          ],
+          "count": 1,
+          "distance": 1624.6,
+          "elevation_gain": 14.2,
+          "moving_time": 610.0
         }
       },
       "Walk": {
@@ -3044,10 +2939,7 @@
           "count": 1,
           "distance": 1791.2,
           "elevation_gain": 44.8,
-          "moving_time": 1297.0,
-          "weight_reps": 0,
-          "weight_sets": 0,
-          "weight_volume_lbs": 0.0
+          "moving_time": 1297.0
         }
       },
       "WeightTraining": {
@@ -3114,7 +3006,7 @@
       }
     }
   },
-  "generated_at": "2026-02-18T23:40:49.127669+00:00",
+  "generated_at": "2026-02-19T15:43:23.981580+00:00",
   "other_bucket": "OtherSports",
   "profile_url": "https://www.strava.com/athletes/134713213",
   "repo": "KemptonM/git-sweaty",

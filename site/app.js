@@ -3978,21 +3978,6 @@ async function init() {
     throw new Error("Invalid dashboard data format.");
   }
   
-  // Debug output
-  console.log("=== DASHBOARD DATA LOADED ===");
-  console.log("Payload structure:", Object.keys(payload));
-  console.log("Types available:", payload.types);
-  console.log("Years available:", payload.years);
-  console.log("Activities count:", (payload.activities || []).length);
-  console.log("Aggregates keys:", Object.keys(payload.aggregates || {}));
-  if (payload.aggregates) {
-    Object.entries(payload.aggregates).forEach(([year, types]) => {
-      const typeNames = Object.keys(types);
-      console.log(`  Year ${year}: ${typeNames.join(", ")}`);
-    });
-  }
-  console.log("Full payload:", payload);
-  
   const repoCandidate = payloadRepoCandidate(payload);
   const profileUrl = payloadProfileUrl(payload);
   const sourceValue = payloadSource(payload);

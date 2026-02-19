@@ -2628,6 +2628,12 @@ function buildSummary(
           totals.distance += entry.distance || 0;
           totals.moving_time += entry.moving_time || 0;
           totals.elevation += entry.elevation_gain || 0;
+          // Accumulate weight metrics for WeightTraining activities
+          if (type === "WeightTraining") {
+            totals.weight_volume_lbs += entry.weight_volume_lbs || 0;
+            totals.weight_sets += entry.weight_sets || 0;
+            totals.weight_reps += entry.weight_reps || 0;
+          }
         }
         if (includeTypeCardCount) {
           typeTotals[type].count += entry.count || 0;
@@ -3971,6 +3977,22 @@ async function init() {
   if (!payload || typeof payload !== "object") {
     throw new Error("Invalid dashboard data format.");
   }
+  
+  // Debug output
+  console.log("=== DASHBOARD DATA LOADED ===");
+  console.log("Payload structure:", Object.keys(payload));
+  console.log("Types available:", payload.types);
+  console.log("Years available:", payload.years);
+  console.log("Activities count:", (payload.activities || []).length);
+  console.log("Aggregates keys:", Object.keys(payload.aggregates || {}));
+  if (payload.aggregates) {
+    Object.entries(payload.aggregates).forEach(([year, types]) => {
+      const typeNames = Object.keys(types);
+      console.log(`  Year ${year}: ${typeNames.join(", ")}`);
+    });
+  }
+  console.log("Full payload:", payload);
+  
   const repoCandidate = payloadRepoCandidate(payload);
   const profileUrl = payloadProfileUrl(payload);
   const sourceValue = payloadSource(payload);

@@ -2398,5 +2398,21 @@
     "weight_sets": 0,
     "weight_volume_lbs": 0.0,
     "year": 2026
+  },
+  {
+    "date": "2026-02-19",
+    "distance": 1623.2,
+    "elevation_gain": 11.2,
+    "id": "17457462405",
+    "moving_time": 636.0,
+    "name": "Because man is an animal, movement is most important for him. And because he is a rational animal, his movements must have a reason.",
+    "raw_activity_type": "Run",
+    "raw_type": "Run",
+    "start_date_local": "2026-02-19T23:45:12Z",
+    "type": "Run",
+    "weight_reps": 0,
+    "weight_sets": 0,
+    "weight_volume_lbs": 0.0,
+    "year": 2026
   }
 ]

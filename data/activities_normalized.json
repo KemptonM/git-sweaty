@@ -6206,5 +6206,21 @@
     "weight_sets": 0,
     "weight_volume_lbs": 0.0,
     "year": 2026
+  },
+  {
+    "date": "2026-02-21",
+    "distance": 922.9,
+    "elevation_gain": 38.0,
+    "id": "17467906071",
+    "moving_time": 506.0,
+    "name": "Night Run",
+    "raw_activity_type": "Run",
+    "raw_type": "Run",
+    "start_date_local": "2026-02-21T01:28:17Z",
+    "type": "Run",
+    "weight_reps": 0,
+    "weight_sets": 0,
+    "weight_volume_lbs": 0.0,
+    "year": 2026
   }
 ]

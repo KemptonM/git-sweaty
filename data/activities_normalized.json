@@ -6222,5 +6222,21 @@
     "weight_sets": 0,
     "weight_volume_lbs": 0.0,
     "year": 2026
+  },
+  {
+    "date": "2026-02-24",
+    "distance": 0.0,
+    "elevation_gain": 0.0,
+    "id": "17512442862",
+    "moving_time": 4744.0,
+    "name": "Gym was packed and my stummy hurt but I still moved some heavy stuff around",
+    "raw_activity_type": "WeightTraining",
+    "raw_type": "WeightTraining",
+    "start_date_local": "2026-02-24T17:49:12Z",
+    "type": "WeightTraining",
+    "weight_reps": 99,
+    "weight_sets": 17,
+    "weight_volume_lbs": 12120.0,
+    "year": 2026
   }
 ]

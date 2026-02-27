@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-26T15:49:58.630603+00:00",
+  "generated_at": "2026-02-27T15:35:04.154313+00:00",
   "year_totals": {
     "2017": {
       "weight_reps": 0,
@@ -27,9 +27,9 @@
       "weight_volume_lbs": 453758.4
     },
     "2026": {
-      "weight_reps": 435,
-      "weight_sets": 69,
-      "weight_volume_lbs": 48895.0
+      "weight_reps": 516,
+      "weight_sets": 81,
+      "weight_volume_lbs": 59232.5
     }
   },
   "years": {
@@ -3741,6 +3741,18 @@
           "weight_reps": 99,
           "weight_sets": 17,
           "weight_volume_lbs": 12120.0
+        },
+        "2026-02-26": {
+          "activity_ids": [
+            "17537203183"
+          ],
+          "count": 1,
+          "distance": 0.0,
+          "elevation_gain": 0.0,
+          "moving_time": 3933.0,
+          "weight_reps": 81,
+          "weight_sets": 12,
+          "weight_volume_lbs": 10337.5
         }
       }
     }

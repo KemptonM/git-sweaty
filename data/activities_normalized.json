@@ -6302,5 +6302,37 @@
     "weight_sets": 0,
     "weight_volume_lbs": 0.0,
     "year": 2026
+  },
+  {
+    "date": "2026-03-20",
+    "distance": 3162.2,
+    "elevation_gain": 35.0,
+    "id": "17808987768",
+    "moving_time": 1613.0,
+    "name": "Night Run",
+    "raw_activity_type": "Run",
+    "raw_type": "Run",
+    "start_date_local": "2026-03-20T22:32:16Z",
+    "type": "Run",
+    "weight_reps": 0,
+    "weight_sets": 0,
+    "weight_volume_lbs": 0.0,
+    "year": 2026
+  },
+  {
+    "date": "2026-03-21",
+    "distance": 2650.5,
+    "elevation_gain": 37.8,
+    "id": "17809240225",
+    "moving_time": 1306.0,
+    "name": "Evening Run",
+    "raw_activity_type": "Run",
+    "raw_type": "Run",
+    "start_date_local": "2026-03-21T19:16:42Z",
+    "type": "Run",
+    "weight_reps": 0,
+    "weight_sets": 0,
+    "weight_volume_lbs": 0.0,
+    "year": 2026
   }
 ]

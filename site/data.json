@@ -3572,6 +3572,15 @@
       "type": "Run",
       "url": "https://www.strava.com/activities/17848548265",
       "year": 2026
+    },
+    {
+      "date": "2026-03-25",
+      "hour": 18,
+      "name": "Monday \u2013 Push",
+      "subtype": "WeightTraining",
+      "type": "WeightTraining",
+      "url": "https://www.strava.com/activities/17859506743",
+      "year": 2026
     }
   ],
   "aggregates": {
@@ -7349,11 +7358,23 @@
           "weight_reps": 81,
           "weight_sets": 12,
           "weight_volume_lbs": 10337.5
+        },
+        "2026-03-25": {
+          "activity_ids": [
+            "17859506743"
+          ],
+          "count": 1,
+          "distance": 0.0,
+          "elevation_gain": 0.0,
+          "moving_time": 3844.0,
+          "weight_reps": 104,
+          "weight_sets": 14,
+          "weight_volume_lbs": 11865.0
         }
       }
     }
   },
-  "generated_at": "2026-03-25T16:05:27.024499+00:00",
+  "generated_at": "2026-03-26T16:09:07.550001+00:00",
   "other_bucket": "OtherSports",
   "profile_url": "https://www.strava.com/athletes/134713213",
   "repo": "KemptonM/git-sweaty",

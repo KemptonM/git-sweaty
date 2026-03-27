@@ -6366,5 +6366,21 @@
     "weight_sets": 14,
     "weight_volume_lbs": 11865.0,
     "year": 2026
+  },
+  {
+    "date": "2026-03-26",
+    "distance": 2036.8,
+    "elevation_gain": 29.4,
+    "id": "17870553910",
+    "moving_time": 912.0,
+    "name": "Afternoon Run",
+    "raw_activity_type": "Run",
+    "raw_type": "Run",
+    "start_date_local": "2026-03-26T17:41:55Z",
+    "type": "Run",
+    "weight_reps": 0,
+    "weight_sets": 0,
+    "weight_volume_lbs": 0.0,
+    "year": 2026
   }
 ]

@@ -6382,5 +6382,21 @@
     "weight_sets": 0,
     "weight_volume_lbs": 0.0,
     "year": 2026
+  },
+  {
+    "date": "2026-04-04",
+    "distance": 0.0,
+    "elevation_gain": 0.0,
+    "id": "17981664059",
+    "moving_time": 2886.0,
+    "name": "Line graph go up",
+    "raw_activity_type": "WeightTraining",
+    "raw_type": "WeightTraining",
+    "start_date_local": "2026-04-04T20:20:26Z",
+    "type": "WeightTraining",
+    "weight_reps": 105,
+    "weight_sets": 17,
+    "weight_volume_lbs": 11700.0,
+    "year": 2026
   }
 ]

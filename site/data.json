@@ -3590,6 +3590,15 @@
       "type": "Run",
       "url": "https://www.strava.com/activities/17870553910",
       "year": 2026
+    },
+    {
+      "date": "2026-04-04",
+      "hour": 20,
+      "name": "Line graph go up",
+      "subtype": "WeightTraining",
+      "type": "WeightTraining",
+      "url": "https://www.strava.com/activities/17981664059",
+      "year": 2026
     }
   ],
   "aggregates": {
@@ -7388,11 +7397,23 @@
           "weight_reps": 104,
           "weight_sets": 14,
           "weight_volume_lbs": 11865.0
+        },
+        "2026-04-04": {
+          "activity_ids": [
+            "17981664059"
+          ],
+          "count": 1,
+          "distance": 0.0,
+          "elevation_gain": 0.0,
+          "moving_time": 2886.0,
+          "weight_reps": 105,
+          "weight_sets": 17,
+          "weight_volume_lbs": 11700.0
         }
       }
     }
   },
-  "generated_at": "2026-04-04T15:26:15.030682+00:00",
+  "generated_at": "2026-04-05T15:27:17.042752+00:00",
   "other_bucket": "OtherSports",
   "profile_url": "https://www.strava.com/athletes/134713213",
   "repo": "KemptonM/git-sweaty",

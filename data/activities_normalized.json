@@ -6398,5 +6398,21 @@
     "weight_sets": 17,
     "weight_volume_lbs": 11700.0,
     "year": 2026
+  },
+  {
+    "date": "2026-04-11",
+    "distance": 0.0,
+    "elevation_gain": 0.0,
+    "id": "18073453077",
+    "moving_time": 2573.0,
+    "name": "Tuesday \u2013 Pull",
+    "raw_activity_type": "WeightTraining",
+    "raw_type": "WeightTraining",
+    "start_date_local": "2026-04-11T21:14:03Z",
+    "type": "WeightTraining",
+    "weight_reps": 76,
+    "weight_sets": 13,
+    "weight_volume_lbs": 9492.5,
+    "year": 2026
   }
 ]

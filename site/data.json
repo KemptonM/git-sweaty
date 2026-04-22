@@ -3617,6 +3617,15 @@
       "type": "WeightTraining",
       "url": "https://www.strava.com/activities/18098060115",
       "year": 2026
+    },
+    {
+      "date": "2026-04-21",
+      "hour": 20,
+      "name": "Push push push push push push push push",
+      "subtype": "WeightTraining",
+      "type": "WeightTraining",
+      "url": "https://www.strava.com/activities/18206115091",
+      "year": 2026
     }
   ],
   "aggregates": {
@@ -7451,11 +7460,23 @@
           "weight_reps": 122,
           "weight_sets": 21,
           "weight_volume_lbs": 12515.0
+        },
+        "2026-04-21": {
+          "activity_ids": [
+            "18206115091"
+          ],
+          "count": 1,
+          "distance": 0.0,
+          "elevation_gain": 0.0,
+          "moving_time": 3874.0,
+          "weight_reps": 68,
+          "weight_sets": 12,
+          "weight_volume_lbs": 6070.0
         }
       }
     }
   },
-  "generated_at": "2026-04-21T16:07:19.788004+00:00",
+  "generated_at": "2026-04-22T16:06:01.384743+00:00",
   "other_bucket": "OtherSports",
   "profile_url": "https://www.strava.com/athletes/134713213",
   "repo": "KemptonM/git-sweaty",

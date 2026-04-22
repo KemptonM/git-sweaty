@@ -6430,5 +6430,21 @@
     "weight_sets": 21,
     "weight_volume_lbs": 12515.0,
     "year": 2026
+  },
+  {
+    "date": "2026-04-21",
+    "distance": 0.0,
+    "elevation_gain": 0.0,
+    "id": "18206115091",
+    "moving_time": 3874.0,
+    "name": "Push push push push push push push push",
+    "raw_activity_type": "WeightTraining",
+    "raw_type": "WeightTraining",
+    "start_date_local": "2026-04-21T20:16:11Z",
+    "type": "WeightTraining",
+    "weight_reps": 68,
+    "weight_sets": 12,
+    "weight_volume_lbs": 6070.0,
+    "year": 2026
   }
 ]

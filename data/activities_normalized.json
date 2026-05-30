@@ -6446,5 +6446,21 @@
     "weight_sets": 12,
     "weight_volume_lbs": 6070.0,
     "year": 2026
+  },
+  {
+    "date": "2026-05-29",
+    "distance": 0.0,
+    "elevation_gain": 0.0,
+    "id": "18709399312",
+    "moving_time": 4910.0,
+    "name": "Monday \u2013 Push",
+    "raw_activity_type": "WeightTraining",
+    "raw_type": "WeightTraining",
+    "start_date_local": "2026-05-29T21:09:13Z",
+    "type": "WeightTraining",
+    "weight_reps": 79,
+    "weight_sets": 12,
+    "weight_volume_lbs": 7625.0,
+    "year": 2026
   }
 ]
